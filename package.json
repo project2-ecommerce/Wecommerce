@@ -1,0 +1,26 @@
+{
+  "name": "wecommerce",
+  "version": "1.0.0",
+  "description": "WIP",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project2-ecommerce/Wecommerce.git"
+  },
+  "author": "Mark Alaniz, Will Blake, Pete Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/project2-ecommerce/Wecommerce/issues"
+  },
+  "homepage": "https://github.com/project2-ecommerce/Wecommerce#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "sequelize": "^4.33.4",
+    "sequelize-cli": "^4.0.0"
+  }
+}
