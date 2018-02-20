@@ -1,0 +1,42 @@
+nav {
+  background-color: #aaa;
+}
+
+.brand-img {
+    max-height: 100%;
+}
+.nav-row {
+  height: 80px;
+}
+.auth-link {
+  padding: 0 10px;
+}
+.nav-items {
+    height: 100%;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+li {
+  display: inline;
+  padding: 0 20px;
+  font-size: 20px;
+}
+/* marketing campaign section */
+section {
+  background-color: #888;
+}
+
+h1 {
+    text-align: center;
+    padding: 200px 0;
+}
+
+.banner-button {
+    text-align: center;
+    padding: 50px 0;
+    border: 2px solid black;
+}
