@@ -1,3 +1,9 @@
+html, body {
+  height: 100%;
+}
+/*-------------------------------------------------------------- 
+NAVBAR STYLES
+--------------------------------------------------------------*/
 nav {
   background-color: #aaa;
 }
@@ -9,7 +15,7 @@ nav {
   height: 80px;
 }
 .auth-link {
-  padding: 0 10px;
+  padding: 0 25px;
 }
 .nav-items {
     height: 100%;
@@ -25,18 +31,31 @@ li {
   padding: 0 20px;
   font-size: 20px;
 }
-/* marketing campaign section */
+/* ------------------------------------------------------
+MARKETING SECTION STYLES 
+--------------------------------------------------------*/
 section {
   background-color: #888;
 }
 
-h1 {
-    text-align: center;
-    padding: 200px 0;
+.campaign-banner {
+  text-align: center;
+  /* padding: 100px; */
+}
+.banner-text {
+    display: inline-block;
+    padding: 200px 0px 50px 0px;
+    border: 2px solid black;
 }
 
-.banner-button {
-    text-align: center;
-    padding: 50px 0;
-    border: 2px solid black;
+.b-button {
+  display: block;
+  margin-top: 100px;
+  padding: 0px;
+  border: 2px solid red;
+
+}
+
+.b-button-text {
+  font-size: 20px;
 }
