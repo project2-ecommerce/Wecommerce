@@ -45,7 +45,7 @@ section {
 .banner-text {
     display: inline-block;
     padding: 200px 0px 50px 0px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .b-button {
