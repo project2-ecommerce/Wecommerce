@@ -4,34 +4,9 @@ html, body {
 /*-------------------------------------------------------------- 
 NAVBAR STYLES
 --------------------------------------------------------------*/
-nav {
-  background-color: #aaa;
-}
-
-.brand-img {
-    max-height: 100%;
-}
-.nav-row {
-  height: 80px;
-}
-.auth-link {
-  padding: 0 25px;
-}
-.nav-items {
-    height: 100%;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-li {
-  display: inline;
-  padding: 0 20px;
-  font-size: 20px;
-}
-
+/* .navbar {
+  margin-top: 10px;
+} */
 /* ------------------------------------------------------
 MARKETING SECTION STYLES 
 --------------------------------------------------------*/
@@ -41,12 +16,10 @@ section {
 
 .campaign-banner {
   text-align: center;
-  /* padding: 100px; */
 }
 .banner-text {
     display: inline-block;
-    padding: 200px 0px 50px 0px;
-    /* border: 2px solid black; */
+    padding: 300px 0px 60px 0px;
 }
 
 .b-button {
