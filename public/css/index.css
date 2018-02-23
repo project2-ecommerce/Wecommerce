@@ -1,0 +1,35 @@
+html, body {
+  height: 100%;
+}
+/*-------------------------------------------------------------- 
+NAVBAR STYLES
+--------------------------------------------------------------*/
+/* .navbar {
+  margin-top: 10px;
+} */
+/* ------------------------------------------------------
+MARKETING SECTION STYLES 
+--------------------------------------------------------*/
+section {
+  background-color: #888;
+}
+
+.campaign-banner {
+  text-align: center;
+}
+.banner-text {
+    display: inline-block;
+    padding: 300px 0px 60px 0px;
+}
+
+.b-button {
+  display: block;
+  margin-top: 100px;
+  padding: 0px;
+  border: 2px solid red;
+
+}
+
+.b-button-text {
+  font-size: 20px;
+}
