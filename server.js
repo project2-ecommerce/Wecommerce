@@ -22,7 +22,7 @@ app.set("view engine", "handlebars");
 
 //Routes
 require("./routing/viewRoutes.js")(app);
-
+require("./routing/apiRoutes.js")(app);
 // Start the server
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
