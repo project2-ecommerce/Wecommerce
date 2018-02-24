@@ -1,15 +1,19 @@
 // Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
+var passport = require('passport');
 
 // Set up express app
 var app = express();
 var PORT = process.env.PORT || 3000;
+// configuration ============================================================
+// set up database connection
 var db = require("./models");
+
+// pass passport for configuration
+require('./config/passport')(passport); 
 // Set up body parser from documentation
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-// parse application/json
 app.use(bodyParser.json());
 
 // Access static directory
@@ -20,8 +24,12 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// required for passport
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 //Routes
-require("./routing/viewRoutes.js")(app);
+require("./routing/viewRoutes.js")(app, passport);
 
 // Start the server
 db.sequelize.sync({ force: true }).then(function() {
