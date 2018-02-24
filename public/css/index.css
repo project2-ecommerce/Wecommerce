@@ -1,35 +1,111 @@
-html, body {
-  height: 100%;
-}
-/*-------------------------------------------------------------- 
-NAVBAR STYLES
---------------------------------------------------------------*/
-/* .navbar {
-  margin-top: 10px;
-} */
-/* ------------------------------------------------------
-MARKETING SECTION STYLES 
---------------------------------------------------------*/
-section {
-  background-color: #888;
+
+* {
+    box-sizing: border-box;
 }
 
-.campaign-banner {
-  text-align: center;
-}
-.banner-text {
-    display: inline-block;
-    padding: 300px 0px 60px 0px;
+p {
+        margin-bottom: -.08em;
 }
 
-.b-button {
-  display: block;
-  margin-top: 100px;
-  padding: 0px;
-  border: 2px solid red;
-
+a {
+    font-family: Raleway-Regular;
+    font-size: 12px;
+    color: #FFFFFF;
+    padding-right: 30px;
 }
 
-.b-button-text {
-  font-size: 20px;
+button {
+    height: 42px;
+    width: 180px;
+    color: #FFFFFF;
+}
+
+.main-container {
+    max-width: 1440px;
+    max-height: 1800px;
+}
+
+.grid-container {
+    display: grid;
+    grid-column-gap: 20px;
+    /* grid-template-columns: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px; */
+}
+
+.header {
+    height: 480px;
+    width: 1440px;
+    background-image: url("../images/main_img.png");
+}
+
+.header-copy {
+    color: #DF997D;
+}
+
+#first-line {
+    position: relative;
+    padding-left: 132px;
+    top: 70px;
+    font-family: AbrilFatface-Regular;
+    font-size: 40px;
+}
+
+#second-line {
+    position: relative;
+    padding-left: 132px;
+    top: 7px;
+    font-family: AbrilFatface-Regular;
+    font-size: 88px;
+}
+
+#third-line {
+    position: relative;
+    padding-left: 132px;
+    bottom: 36px;
+    font-family: Raleway-Medium;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.navbar {
+    height: 55px;
+    width: 1440px;
+    position: relative;
+    top: 70px;
+    background-color: #C65837;
+    opacity: .8;
+    padding-left: 132px;
+    padding-right: 132px;
+}
+
+.marketing {
+    height: 607px;
+    width: 1440px;
+    background-image: url("../images/marketing_img.png");
+    text-align: center;
+}
+
+.accepted-payment {
+    height: 580px;
+    width: 1440px;
+    background-image: url("../images/topography.png");
+}
+
+.footer {
+    height: 140px;
+    width: 1440px;
+    background-color: #2E5564;
+}
+
+#clearance {
+    background-color: #8E3F30;
+    position: relative;
+    top: 520px;
+}
+
+#learn {
+    background-color: #2E5564;
+    position: relative;
+    top: 348px;
+    left: 132px;
 }
