@@ -1,0 +1,10 @@
+.navbar {
+    height: 55px;
+    width: 1440px;
+    position: relative;
+    top: 70px;
+    background-color: #C65837;
+    opacity: .8;
+    padding-left: 132px;
+    padding-right: 132px;
+}

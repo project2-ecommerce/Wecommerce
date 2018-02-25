@@ -38,7 +38,7 @@ module.exports = function(passport, user) {
       },
       function(req, token, refreshToken, profile, done) {
         // check if the user is already logged in
-        console.log(profile);
+        // console.log(profile);
         if (!req.user) {
           db.User.findOne({ where: { facebook_id: profile.id } }).then(function(
             user
@@ -61,7 +61,21 @@ module.exports = function(passport, user) {
         } else {
           // user already exists and is logged in, we have to link accounts
           console.log("USER IS ALREADY SIGNED IN, LINK ACCOUNTS");
-          console.log(req.user);
+          db.User.update(
+            {
+              facebook_id: profile.id,
+              token: token,
+              name: profile.displayName
+              // email: profile.emails[0].value
+            },
+            {
+              where: {
+                id: user.dataValues.id
+              }
+            }
+          ).then(function(user) {
+            return done(null, user);
+          });
         }
       }
     )
