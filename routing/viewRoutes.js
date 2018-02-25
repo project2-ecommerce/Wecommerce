@@ -7,6 +7,6 @@ module.exports = function(app) {
     res.render("learnMore", {title: "Learn More", css: "learnMore.css", javascript: "learnMore.js"});
   });
   app.get("/aboutus", function (req, res) {
-    res.render("aboutUs");
+    res.render("aboutUs", {title: "About Us", css: "aboutUs.css", javascript: "aboutUs.js"});
   });
 };

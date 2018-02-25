@@ -35,7 +35,7 @@ button {
 .header {
     height: 480px;
     width: 1440px;
-    background-image: url("../images/main_img.png");
+    background-image: url("../img/main_img.png");
 }
 
 .header-copy {
@@ -81,14 +81,14 @@ button {
 .marketing {
     height: 607px;
     width: 1440px;
-    background-image: url("../images/marketing_img.png");
+    background-image: url("../img/marketing_img.png");
     text-align: center;
 }
 
 .accepted-payment {
     height: 580px;
     width: 1440px;
-    background-image: url("../images/topography.png");
+    background-image: url("../img/topography.png");
 }
 
 .footer {
