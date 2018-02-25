@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var User = sequelize.define("user", {
+    var User = sequelize.define("User", {
         facebook_id: DataTypes.STRING,
         token: DataTypes.STRING,
         name: DataTypes.STRING,

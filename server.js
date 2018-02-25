@@ -3,6 +3,9 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
 // Set up express app
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -11,8 +14,9 @@ var PORT = process.env.PORT || 3000;
 var db = require("./models");
 
 // pass passport for configuration
-require('./config/passport')(passport); 
+require('./config/passport')(passport, db.user); 
 // Set up body parser from documentation
+app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -25,6 +29,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // required for passport
+app.use(session({ secret: 'zomaareenstukjetekstDatjenietzomaarbedenkt' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 

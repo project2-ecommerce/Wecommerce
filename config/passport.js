@@ -3,20 +3,20 @@ var FacebookStrategy = require("passport-facebook").Strategy;
 var db = require("../models");
 
 // load up the user model
-var User = require("../models/user");
+var User = require("../models/user.js");
 
 // load the auth variables
 var configAuth = require("./auth");
 
-module.exports = function(passport) {
+module.exports = function(passport, user) {
   // used to serialize the user for the session
   passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, user.dataValues.id);
   });
 
   passport.deserializeUser(function(id, done) {
-    db.User.find({ where: { id: id } })
-      .success(function(user) {
+    db.User.findOne({ where: { id: id } })
+      .then(function(user) {
         done(null, user);
       })
       .error(function(err) {
@@ -38,60 +38,30 @@ module.exports = function(passport) {
       },
       function(req, token, refreshToken, profile, done) {
         // check if the user is already logged in
+        console.log(profile);
         if (!req.user) {
-          db.User.findOne({ where: { facebookid: profile.id } }).then(function(
+          db.User.findOne({ where: { facebook_id: profile.id } }).then(function(
             user
           ) {
             if (user) {
-              // if there is a user id already but no token (user was linked at one point and then removed)
-              if (!user.facebooktoken) {
-                user.facebooktoken = token;
-                user.facebookname =
-                  profile.name.givenName + " " + profile.name.familyName;
-                user.facebookemail = profile.emails[0].value;
-
-                user
-                  .save()
-                  .then(function() {
-                    done(null, user);
-                  })
-                  .catch(function(e) {});
-              } else {
-                done(null, user);
+              if (user) {
+                return done(null, user);
               }
             } else {
-              // if there is no user, create them
-              var newUser = User.build({
-                facebookid: profile.id,
-                facebooktoken: token,
-                facebookname:
-                  profile.name.givenName + " " + profile.name.familyName,
-                facebookemail: profile.emails[0].value
+              db.User.create({
+                facebook_id: profile.id,
+                token: token,
+                name: profile.displayName
+                // email: profile.emails[0].value
+              }).then(function(user) {
+                return done(null, user);
               });
-              newUser
-                .save()
-                .then(function() {
-                  done(null, user);
-                })
-                .catch(function(e) {});
             }
           });
         } else {
           // user already exists and is logged in, we have to link accounts
-          var user = req.user; // pull the user out of the session
-
-          user.facebookid = profile.id;
-          user.facebooktoken = token;
-          user.facebookname =
-            profile.name.givenName + " " + profile.name.familyName;
-          user.facebookemail = profile.emails[0].value;
-
-          user
-            .save()
-            .then(function() {
-              done(null, user);
-            })
-            .catch(function(e) {});
+          console.log("USER IS ALREADY SIGNED IN, LINK ACCOUNTS");
+          console.log(req.user);
         }
       }
     )
