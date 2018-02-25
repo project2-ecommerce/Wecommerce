@@ -6,7 +6,8 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING,
       allowNull: true
-    }
+    },
+    admin: DataTypes.BOOLEAN
   });
   return User;
 };

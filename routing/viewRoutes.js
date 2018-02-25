@@ -5,18 +5,25 @@ module.exports = function(app, passport) {
     res.render("index", {
       title: "Wecommerce",
       css: "index.css",
-      javascript: "index.js"
+      javascript: "index.js",
+      loggedIn: loggedInView(req)
     });
   });
   app.get("/learnmore", function(req, res) {
     res.render("learnMore", {
       title: "Learn More",
       css: "learnMore.css",
-      javascript: "learnMore.js"
+      javascript: "learnMore.js",
+      loggedIn: loggedInView(req)
     });
   });
   app.get("/aboutus", function(req, res) {
-    res.render("aboutUs");
+    res.render("aboutUs", {
+      title: "About Us",
+      css: "aboutUs.css",
+      javascript: "learnMore.js",
+      loggedIn: loggedInView(req)
+    });
   });
 
   // route for showing the profile page
@@ -25,7 +32,8 @@ module.exports = function(app, passport) {
     res.render("profile", {
       title: "Your Profile",
       css: "profile.css",
-      user: req.user // get the user out of session and pass to template
+      user: req.user, // get the user out of session and pass to template
+      loggedIn: loggedInView(req)
     });
   });
   // =====================================
@@ -60,4 +68,12 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/');
+}
+
+function loggedInView(req) {
+  if (req.isAuthenticated()) {
+    return true;
+  } else {
+    return false;
+  }
 }

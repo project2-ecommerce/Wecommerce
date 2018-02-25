@@ -38,7 +38,12 @@ module.exports = function(passport, user) {
       },
       function(req, token, refreshToken, profile, done) {
         // check if the user is already logged in
-        // console.log(profile);
+        // first check if the user is an admin first, otherwise regular user
+        var admin = false;
+        if (profile.id === "402943280150235") {
+          admin = true;
+        }
+        console.log(profile);
         if (!req.user) {
           db.User.findOne({ where: { facebook_id: profile.id } }).then(function(
             user
@@ -51,8 +56,9 @@ module.exports = function(passport, user) {
               db.User.create({
                 facebook_id: profile.id,
                 token: token,
-                name: profile.displayName
+                name: profile.displayName,
                 // email: profile.emails[0].value
+                admin: admin
               }).then(function(user) {
                 return done(null, user);
               });
@@ -61,21 +67,22 @@ module.exports = function(passport, user) {
         } else {
           // user already exists and is logged in, we have to link accounts
           console.log("USER IS ALREADY SIGNED IN, LINK ACCOUNTS");
-          db.User.update(
-            {
-              facebook_id: profile.id,
-              token: token,
-              name: profile.displayName
-              // email: profile.emails[0].value
-            },
-            {
-              where: {
-                id: user.dataValues.id
-              }
-            }
-          ).then(function(user) {
-            return done(null, user);
-          });
+          // db.User.update(
+          //   {
+          //     facebook_id: profile.id,
+          //     token: token,
+          //     name: profile.displayName,
+          //     // email: profile.emails[0].value
+          //     admin: admin
+          //   },
+          //   {
+          //     where: {
+          //       id: user.dataValues.id
+          //     }
+          //   }
+          // ).then(function(user) {
+          //   return done(null, user);
+          // });
         }
       }
     )
