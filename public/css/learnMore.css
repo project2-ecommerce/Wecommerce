@@ -5,8 +5,9 @@
 .container {
     max-width: 1440px;
     max-height: 1800px;
-    padding-left: 200px;
     padding-right: 200px;
+    padding-bottom: 100px;
+    padding-left: 200px;
 }
 
 img {
@@ -15,6 +16,7 @@ img {
 }
 
 h1 {
+    padding-top: 20px;
     font-weight: bold;
 }
 
