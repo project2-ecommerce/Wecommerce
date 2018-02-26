@@ -1,35 +1,59 @@
 <div class='main-container'>
     <div class='grid-container'>
-    <div class='header'>
-        <button type="button" id='learn'>LEARN MORE</button>
+        <div class='header'>
+            <a href='/learnMore'>
+                <button id='learn'> LEARN MORE</button>
+            </a>
         <div class='navbar'>
-        <div>
-            <a href='/aboutUs'>ABOUT US</a>
-            <a href='/api/tents'>TENTS</a>
-            <a href='/api/sleepingBags'>SLEEPING BAGS</a>
-            <a href='/api/backpacks'>BACKPACKS</a>
+            <div>
+                <a href='/aboutUs'>ABOUT US</a>
+                <a href='/api/tents'>TENTS</a>
+                <a href='/api/sleepingBags'>SLEEPING BAGS</a>
+                <a href='/api/backpacks'>BACKPACKS</a>
+            </div>
+            <div>
+                {{#if loggedIn}}
+                <a href="/logout" class="btn btn-primary">
+                    <span class="fa fa-facebook-official"></span> Logout</a>
+                {{else}}
+                <a href="/auth/facebook" class="btn btn-primary">
+                    <span class="fa fa-facebook-official"></span> Facebook Login</a>
+                {{/if}}
+                <a href='/api/cart'>CART</a>
+            </div>
         </div>
-        <div>
-            <a href='/api/signIn'>SIGN IN</a>
-            <a href='/api/cart'>CART</a>
-        </div>
-        </div>
-        <div class='header-copy'>
-            <p id='first-line'>For the love of</p>
-            <br>
-            <p id='second-line'>OUTDOOR</p>
-            <br>
-            <p id='third-line'>Whether you're a weekend warrior or a<br> Navy SEAL, we've got you covered.</p>
+            <div class='header-copy'>
+                <p id='first-line'>For the love of</p>
+                <br>
+                <p id='second-line'>OUTDOOR</p>
+                <br>
+                <p id='third-line'>Whether you're a weekend warrior or a
+                    <br> Navy SEAL, we've got you covered.</p>
+            </div>
         </div>
     </div>
-    <div class='marketing'>
-        <button type="button" id='clearance'>SHOP CLEARANCE</button>
-    </div>
-    <div class='accepted-payment'>
+        <div class='marketing'>
+            <a href='/api/clearance'>
+                <button id='clearance'>SHOP CLEARANCE</button>
+            </a>
+        </div>
+        <div class='accepted-payment'>
         
-    </div>
-    <div class='footer'>
-       
-    </div>
+        </div>
+        <div class='footer'>
+            <div class='social'>
+                <a href='https://www.facebook.com' target='_blank'><img src='/img/facebook.svg' alt='facebook' class='social-icon'></a>
+                <a href='https://www.twitter.com' target='_blank'><img src='/img/twitter.svg' alt='twitter' class='social-icon'></a>
+                <a href='https://www.instagram.com' target='_blank'><img src='/img/instagram.svg' alt='instagram' class='social-icon'></a>
+                <a href='https://plus.google.com/' target='_blank'><img src='/img/google+.svg' alt='google+' class='social-icon'></a>
+            </div>
+            <p class="footer-block">
+                <span>
+                    <a target="_blank" href='https://github.com/project2-ecommerce/Wecommerce'>
+                        <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                    </a>
+                </span> Created By: Pete Garcia, Mark Alaniz, &amp; Will Blake 2018 &copy;
+            </p>
+        </div>
     </div>
 </div>

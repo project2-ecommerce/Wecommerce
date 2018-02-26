@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1440px;
+    max-height: 1800px;
+    padding-top: 20px;
+    padding-right: 200px;
+    padding-bottom: 60px;
+    padding-left: 200px;
+}
+
+img {
+    width: 1040px;
+    margin-bottom: 8px;
+}
+
+h1 {
+    font-weight: bold;
+}
