@@ -42,21 +42,23 @@ module.exports = function(app, passport) {
     console.log(req.body);
     console.log(req.sessionID);
     console.log(req.user);
+    // if user doesn't have a cart upon adding an item, make a cart
     db.Cart.findOrCreate({
       where: {
         sessionID: req.sessionID,
         purchased: false
       }
     }).then(function(result) {
+      // save cartID for later
       var cartID = result[0].dataValues.id
+      // check if this item has already been added to the cart to prevent dublicates 
       db.CartItems.findOne({
         where: {
           itemID: req.params.itemid
         }
       }).then(function(result) {
+        // if the item of that id is already in cart, just update the item quantity 
         if (result) {
-          console.log(result.dataValues.itemQuantity);
-          console.log(req.body.itemQuantity);
           db.CartItems.update(
             {
               itemQuantity:
@@ -71,6 +73,7 @@ module.exports = function(app, passport) {
             res.json(result);
           });
         } else {
+          // if the item is not already in the cart, add the new item to the cart
           db.CartItems.create({
             cartID: cartID,
             FBuser_ID: null,
