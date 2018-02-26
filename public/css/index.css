@@ -14,6 +14,7 @@ a {
     padding-right: 30px;
 }
 
+/* Button style */
 button {
     height: 42px;
     width: 180px;
@@ -21,6 +22,20 @@ button {
     font-size: 16px;
     color: #FFFFFF;
 }
+
+#clearance {
+    background-color: #8E3F30;
+    position: relative;
+    top: 520px;
+}
+
+#learn {
+    background-color: #2E5564;
+    position: relative;
+    top: 348px;
+    left: 132px;
+}
+/* End button style */
 
 .main-container {
     max-width: 1440px;
@@ -99,15 +114,12 @@ button {
     background-color: #2E5564;
 }
 
-#clearance {
-    background-color: #8E3F30;
-    position: relative;
-    top: 520px;
+.social {
+    text-align: right;
 }
 
-#learn {
-    background-color: #2E5564;
+.social-icon {
     position: relative;
-    top: 348px;
-    left: 132px;
+    top: 50px;
+    height: 40px;
 }
