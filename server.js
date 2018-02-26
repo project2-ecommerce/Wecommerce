@@ -18,7 +18,6 @@ require('./config/passport')(passport, db.user);
 // Set up body parser from documentation
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
-// parse application/json
 app.use(bodyParser.json());
 
 // Access static directory
