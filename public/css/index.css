@@ -114,6 +114,13 @@ button {
     background-color: #2E5564;
 }
 
+.footer-block {
+    position: relative;
+    top: 64px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
 .social {
     text-align: right;
 }
