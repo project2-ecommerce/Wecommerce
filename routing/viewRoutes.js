@@ -9,7 +9,7 @@ module.exports = function(app, passport) {
       loggedIn: loggedInView(req)
     });
   });
-  app.get("/learnmore", function(req, res) {
+  app.get("/learn-more", function(req, res) {
     res.render("learnMore", {
       title: "Learn More",
       css: "learnMore.css",
@@ -17,11 +17,19 @@ module.exports = function(app, passport) {
       loggedIn: loggedInView(req)
     });
   });
-  app.get("/aboutus", function(req, res) {
+  app.get("/about-us", function(req, res) {
     res.render("aboutUs", {
       title: "About Us",
       css: "aboutUs.css",
       javascript: "learnMore.js",
+      loggedIn: loggedInView(req)
+    });
+  });
+  app.get("/cart", function(req, res) {
+    res.render("shoppingcart", {
+      title: "Cart",
+      css: "shoppingCart.css",
+      javascript: "shoppingCart.js",
       loggedIn: loggedInView(req)
     });
   });
