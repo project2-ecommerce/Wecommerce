@@ -36,38 +36,87 @@ module.exports = function(app, passport) {
       loggedIn: loggedInView(req)
     });
   });
-  // =====================================
-    // FACEBOOK ROUTES =====================
-    // =====================================
-    // route for facebook authentication and login
-    app.get('/auth/facebook', passport.authenticate('facebook', { 
-      scope : ['public_profile', 'email']
-    }));
 
-    // handle the callback after facebook has authenticated the user
-    app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect : '/profile',
-            failureRedirect : '/'
-        }));
-
-    // route for logging out
-    app.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/');
+  // POST ROUTES
+  app.post("/:category/:itemid", function(req, res) {
+    console.log(req.body);
+    console.log(req.sessionID);
+    console.log(req.user);
+    db.Cart.findOrCreate({
+      where: {
+        sessionID: req.sessionID,
+        purchased: false
+      }
+    }).then(function(result) {
+      var cartID = result[0].dataValues.id
+      db.CartItems.findOne({
+        where: {
+          itemID: req.params.itemid
+        }
+      }).then(function(result) {
+        if (result) {
+          console.log(result.dataValues.itemQuantity);
+          console.log(req.body.itemQuantity);
+          db.CartItems.update(
+            {
+              itemQuantity:
+                result.dataValues.itemQuantity + req.body.itemQuantity
+            },
+            {
+              where: {
+                itemID: req.params.itemid
+              }
+            }
+          ).then(function(result) {
+            res.json(result);
+          });
+        } else {
+          db.CartItems.create({
+            cartID: cartID,
+            FBuser_ID: null,
+            itemID: req.params.itemid,
+            itemQuantity: req.body.itemQuantity,
+            itemPrice: req.body.itemPrice
+          }).then(function(result) {
+            res.json(result);
+          });
+        }
+      });
     });
+  });
+  // =====================================
+  // FACEBOOK ROUTES =====================
+  // =====================================
+  // route for facebook authentication and login
+  app.get(
+    "/auth/facebook",
+    passport.authenticate("facebook", {
+      scope: ["public_profile", "email"]
+    })
+  );
 
+  // handle the callback after facebook has authenticated the user
+  app.get(
+    "/auth/facebook/callback",
+    passport.authenticate("facebook", {
+      successRedirect: "/profile",
+      failureRedirect: "/"
+    })
+  );
+
+  // route for logging out
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
 }; //end of export
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
-
-    // if user is authenticated in the session, carry on
-    if (req.isAuthenticated())
-        return next();
-
-    // if they aren't redirect them to the home page
-    res.redirect('/');
+  // if user is authenticated in the session, carry on
+  if (req.isAuthenticated()) return next();
+  // if they aren't redirect them to the home page
+  res.redirect("/");
 }
 
 function loggedInView(req) {
