@@ -1,35 +1,43 @@
 <div class='main-container'>
     <div class='grid-container'>
-    <div class='header'>
-        <button type="button" id='learn'>LEARN MORE</button>
-        <div class='navbar'>
-        <div>
-            <a href='/aboutUs'>ABOUT US</a>
-            <a href='/api/tents'>TENTS</a>
-            <a href='/api/sleepingBags'>SLEEPING BAGS</a>
-            <a href='/api/backpacks'>BACKPACKS</a>
+        <div class='header'>
+            <button type="button" id='learn'>LEARN MORE</button>
+            <div class='navbar'>
+                <div>
+                    <a href='/aboutUs'>ABOUT US</a>
+                    <a href='/api/tents'>TENTS</a>
+                    <a href='/api/sleepingBags'>SLEEPING BAGS</a>
+                    <a href='/api/backpacks'>BACKPACKS</a>
+                </div>
+                <div>
+                    {{#if loggedIn}}
+                    <a href="/logout" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Logout</a>
+                    {{else}}
+                    <a href="/auth/facebook" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Facebook Login</a>
+                    {{/if}}
+                    <a href='/api/signIn'>SIGN IN</a>
+                    <a href='/api/cart'>CART</a>
+                </div>
+            </div>
+            <div class='header-copy'>
+                <p id='first-line'>For the love of</p>
+                <br>
+                <p id='second-line'>OUTDOOR</p>
+                <br>
+                <p id='third-line'>Whether you're a weekend warrior or a
+                    <br> Navy SEAL, we've got you covered.</p>
+            </div>
         </div>
-        <div>
-            <a href='/api/signIn'>SIGN IN</a>
-            <a href='/api/cart'>CART</a>
+        <div class='marketing'>
+            <button type="button" id='clearance'>SHOP CLEARANCE</button>
         </div>
+        <div class='accepted-payment'>
+
         </div>
-        <div class='header-copy'>
-            <p id='first-line'>For the love of</p>
-            <br>
-            <p id='second-line'>OUTDOOR</p>
-            <br>
-            <p id='third-line'>Whether you're a weekend warrior or a<br> Navy SEAL, we've got you covered.</p>
+        <div class='footer'>
+
         </div>
-    </div>
-    <div class='marketing'>
-        <button type="button" id='clearance'>SHOP CLEARANCE</button>
-    </div>
-    <div class='accepted-payment'>
-        
-    </div>
-    <div class='footer'>
-       
-    </div>
     </div>
 </div>
