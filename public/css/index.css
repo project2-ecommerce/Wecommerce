@@ -115,6 +115,10 @@ button {
     color: white;
 }
 
+#shop-tents:hover {
+    opacity: 0.45;
+}
+
 #tents-tile {
     height: 480px;
     width: 480px;
@@ -129,10 +133,14 @@ button {
     color: white;
 }
 
+#shop-sleepingBags:hover {
+    opacity: 0.45;
+}
+
 #bags-tile {
     height: 480px;
     width: 480px;
-    opacity: 0.4;
+    opacity: 0.46;
 }
 
 #shop-backpacks {
@@ -143,10 +151,14 @@ button {
     color: white;
 }
 
+#shop-backpacks:hover {
+    opacity: 0.45;
+}
+
 #packs-tile {
     height: 480px;
     width: 480px;
-    opacity: 0.4;
+    opacity: 0.48;
 }
 
 .centered {
