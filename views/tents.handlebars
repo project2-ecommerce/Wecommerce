@@ -6,7 +6,7 @@
         <div>
             <a href='/'>HOME</a>
             <a href='/aboutUs'>ABOUT US</a>
-            <a href='/api/tents'>TENTS</a>
+            <a href='/tents'>TENTS</a>
             <a href='/api/sleepingBags'>SLEEPING BAGS</a>
             <a href='/api/backpacks'>BACKPACKS</a>
         </div>
@@ -23,19 +23,21 @@
             <p id='third-line'>Whether you're a weekend warrior or a<br> Navy SEAL, we've got you covered.</p> -->
         </div>
     </div>
+{{#each items}}
     <div class='marketing'>
       <div class="shopWrap">
         <a href="#" target="_blank">
-			       <img class="shopImage" src="../img/sampleTent.png" alt="Picture of app.">
+			       <img class="shopImage" src="../img/{{items.image}}" alt="Picture of app.">
         </a>
-			          <div class="shopText1">SAMPLE TENT</div>
-                  <div class="shopText2">$249.99</div>
+			          <div class="shopText1">{{items.name}}</div>
+                  <div class="shopText2">${{items.price}}</div>
                     <button type="button" id="shopButton">PRODUCT DETAILS</button>
 
 
 </div>
         <!-- <button type="button" id='clearance'>SHOP CLEARANCE</button> -->
     </div>
+{{/each}}
     <div class='accepted-payment'>
 
     </div>

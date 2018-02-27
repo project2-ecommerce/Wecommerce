@@ -25,6 +25,19 @@ module.exports = function(app, passport) {
       loggedIn: loggedInView(req)
     });
   });
+  app.get('/tents', function (req, res) {
+    db.Products.findAll({
+      where:{category:"tent"}
+    }).then(function(results){
+      console.log(results);
+      res.render("tents", {
+      title: "Tents - Wecommerce",
+      css: "products.css",
+      javascript: "index.js",
+      items:results
+      });
+    });
+  });
   app.get("/cart", function(req, res) {
     res.render("shoppingcart", {
       title: "Cart",
@@ -48,7 +61,7 @@ module.exports = function(app, passport) {
     // FACEBOOK ROUTES =====================
     // =====================================
     // route for facebook authentication and login
-    app.get('/auth/facebook', passport.authenticate('facebook', { 
+    app.get('/auth/facebook', passport.authenticate('facebook', {
       scope : ['public_profile', 'email']
     }));
 

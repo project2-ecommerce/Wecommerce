@@ -123,10 +123,13 @@ button {
 
 .shopText1 {
     color: #CB7257;
+    font-size: 40px;
 }
 
 .shopText2 {
-    color: #CB7257;
+    color: #8E3f30;
+    font-size: 30px;
+    font-weight:bold;
 }
 
 #shopButton {
