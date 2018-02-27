@@ -101,6 +101,63 @@ button {
     text-align: center;
 }
 
+/* Shopping tiles */
+.shopping-tiles {
+    background-color: black;
+    display: flex;
+}
+
+#shop-tents {
+    height: 480px;
+    width: 33.33%;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#tents-tile {
+    height: 480px;
+    width: 480px;
+    opacity: 0.5;
+}
+
+#shop-sleepingBags {
+    height: 480px;
+    width: 33.33%;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#bags-tile {
+    height: 480px;
+    width: 480px;
+    opacity: 0.5;
+}
+
+#shop-backpacks {
+    height: 480px;
+    width: 33.33%;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#packs-tile {
+    height: 480px;
+    width: 480px;
+    opacity: 0.5;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+}
+/* End shopping tiles */
+
 .accepted-payment {
     height: 580px;
     width: 1440px;
