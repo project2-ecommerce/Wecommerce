@@ -14,7 +14,7 @@ var PORT = process.env.PORT || 3000;
 var db = require("./models");
 
 // pass passport for configuration
-require('./config/passport')(passport, db.user); 
+require('./config/passport')(passport, db.user);
 // Set up body parser from documentation
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,7 +35,7 @@ app.use(passport.session()); // persistent login sessions
 
 //Routes
 require("./routing/viewRoutes.js")(app, passport);
-
+require("./routing/apiRoutes.js")(app);
 // Start the server
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
