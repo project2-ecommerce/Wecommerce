@@ -47,6 +47,7 @@ module.exports = function(app, passport) {
 
   // POST ROUTES
   app.post("/:category/:itemid", function(req, res) {
+    // NOTE: THIS SECTION IS UNDER CONSTRUCTION, ONLY UNCOMMENT FOR TESTING
     // console.log(req.body);
     // console.log(req.sessionID);
     // console.log(req.user);

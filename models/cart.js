@@ -13,12 +13,9 @@ module.exports = function(sequelize, DataTypes) {
       purchased: DataTypes.BOOLEAN
     });
     Cart.associate = function(models) {
-      // We're saying that a Post should belong to an Author
-      // A Post can't be created without an Author due to the foreign key constraint
+
       Cart.belongsToMany(models.Products, {
-        foreignKey: {
-          allowNull: false
-        }
+        through: 'cartItems'
       });
     };
     return Cart;
