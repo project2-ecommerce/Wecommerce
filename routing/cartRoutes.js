@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
           where: { cartId: result.dataValues.id }
         }).then(function(result) {
           var items = [];
-          for (var i = 0; i < result; i++) {
+          for (var i = 0; i < result.length; i++) {
             items.push(result[i].dataValues);
           }
           res.render("shoppingcart", {
@@ -38,12 +38,9 @@ module.exports = function(app, passport) {
             where: { cartId: result.dataValues.id }
           }).then(function(result) {
             var items = [];
-            for (var i = 0; i < result; i++) {
+            for (var i = 0; i < result.length; i++) {
               items.push(result[i].dataValues);
             }
-            console.log(result[0].dataValues);
-            console.log("==================================");
-            console.log(items);
             res.render("shoppingcart", {
               title: "Cart",
               css: "shoppingCart.css",
