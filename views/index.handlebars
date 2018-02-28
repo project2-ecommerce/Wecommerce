@@ -6,10 +6,11 @@
             </a>
         <div class='navbar'>
             <div>
+                <a href='/'>HOME</a>
                 <a href='/about-us'>ABOUT US</a>
                 <a href='/products/tent'>TENTS</a>
-                <a href='/api/sleeping-bags'>SLEEPING BAGS</a>
-                <a href='/api/backpacks'>BACKPACKS</a>
+                <a href='/products/sleepingbag'>SLEEPING BAGS</a>
+                <a href='/products/backpack'>BACKPACKS</a>
             </div>
             <div>
                 {{#if loggedIn}}
@@ -34,19 +35,19 @@
     </div>
         <div class='shopping-tiles'>
             <div id='shop-tents'>
-                <a href='/tents'>
+                <a href='/products/tent'>
                     <img src='../img/shop_tents.jpg' alt='Shop Tents' id='tents-tile'>
                     <div class="centered">Shop Tents</div>
                 </a>
             </div>
             <div id='shop-sleepingBags'>
-                <a href='/api/sleeping-bags'>
+                <a href='/products/sleeping-bags'>
                     <img src='../img/shop_sleepingBags.jpg' alt='Shop Sleeping Bags' id='bags-tile'>
                     <div class="centered">Shop Sleeping Bags</div>
                 </a>
             </div>
             <div id='shop-backpacks'>
-                    <a href='/api/sleeping-bags'>
+                    <a href='/products/sleeping-bags'>
                         <img src='../img/shop_backpacks.jpg' alt='Shop Backpacks' id='packs-tile'>
                         <div class="centered">Shop Backpacks</div>
                     </a>

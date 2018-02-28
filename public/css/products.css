@@ -114,11 +114,14 @@ button {
     float: left;
     top: 20px;
     background-color: #FFFFFF;
-    padding-bottom: 20px;
+    padding: 20px;
+    /* width: 440px; */
+    /* clear: left; */
 }
 
 .shopImage {
     width: 400px;
+    height: 400px;
 }
 
 .shopText1 {
@@ -135,4 +138,21 @@ button {
 #shopButton {
     background-color: #CB7257;
     position: relative;
+}
+
+.footer-block {
+    position: relative;
+    top: 64px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.social {
+    text-align: right;
+}
+
+.social-icon {
+    position: relative;
+    top: 50px;
+    height: 40px;
 }
