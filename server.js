@@ -2,7 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var passport = require('passport');
-// var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser');
 var session = require('express-session');
 // Set up express app
 var app = express();
@@ -13,7 +13,7 @@ var db = require("./models");
 // pass passport for configuration
 require('./config/passport')(passport, db.user); 
 // Set up body parser from documentation
-// app.use(cookieParser()); // read cookies (needed for auth)
+app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Access static directory

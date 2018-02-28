@@ -2,7 +2,7 @@ var db = require("../models");
 module.exports = function(app, passport) {
   //index route for landing page
   app.get("/", function(req, res) {
-    console.log(req.sessionID);
+    console.log(req.cookies.cart);
     res.render("index", {
       title: "Wecommerce",
       css: "index.css",
