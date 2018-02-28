@@ -88,9 +88,17 @@
                 <div class="total-title">Total</div>
                 <div class="total-value final-value" id="basket-total">130.00</div>
             </div>
-            <div class="summary-checkout">
-                <button class="checkout-cta">Go to Secure Checkout</button>
-            </div>
+                <form action="your-server-side-code" method="POST">
+                    <script src="https://checkout.stripe.com/checkout.js" 
+                            class="stripe-button" 
+                            data-key="pk_test_TWkMSIUvATWhLhvIxi8UMBwB" 
+                            data-amount="222"
+                            data-name="Demo Site" 
+                            data-description="Widget" 
+                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                            data-locale="auto">
+                    </script>
+                </form>
         </div>
     </aside>
 </main>
