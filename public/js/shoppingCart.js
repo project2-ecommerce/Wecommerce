@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  /* Set values + misc */
+    /* Set values + misc */
   var promoCode;
   var promoPrice;
   var fadeTime = 300;

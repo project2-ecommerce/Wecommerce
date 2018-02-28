@@ -2,8 +2,14 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var passport = require('passport');
+var request = require("request");
+
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+
+var stripe = require("stripe")("sk_test_OH63QANsfLtddjDsbkWH122t");
+// var token = request.body.stripeToken;
+
 // Set up express app
 var app = express();
 var PORT = process.env.PORT || 3000;

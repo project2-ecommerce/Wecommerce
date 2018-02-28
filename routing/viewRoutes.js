@@ -22,7 +22,7 @@ module.exports = function(app, passport) {
     res.render("aboutUs", {
       title: "About Us",
       css: "aboutUs.css",
-      javascript: "learnMore.js",
+      javascript: "aboutUs.js",
       loggedIn: loggedInView(req)
     });
   });
@@ -56,33 +56,6 @@ module.exports = function(app, passport) {
       css: "profile.css",
       user: req.user, // get the user out of session and pass to template
       loggedIn: loggedInView(req)
-    });
-  });
-
-  // POST ROUTES
-  app.post("/addtocart/:category/:itemid", function(req, res) {
-    var user;
-    if (req.user) {
-      user = req.user.facebook_id;
-    }
-    db.Cart.findOrCreate({
-      where: {
-        sessionID: req.sessionID
-      },
-      defaults: {
-        user: user,
-        purchased: false
-      }
-    }).then(function(result) {
-      db.CartItems.findOrCreate({
-        where: {
-          CartId: result[0].dataValues.id,
-          ProductId: req.params.itemid,
-          quantity: req.body.quantity
-        }
-      }).then(function(result) {
-        res.redirect("/cart");
-      });
     });
   });
 };
