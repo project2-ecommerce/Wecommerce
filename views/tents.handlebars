@@ -23,14 +23,14 @@
             <p id='third-line'>Whether you're a weekend warrior or a<br> Navy SEAL, we've got you covered.</p> -->
         </div>
     </div>
-{{#each items}}
+{{#each item}}
     <div class='marketing'>
       <div class="shopWrap">
         <a href="#" target="_blank">
-			       <img class="shopImage" src="../img/{{items.image}}" alt="Picture of app.">
+			       <img class="shopImage" src="../img/{{image}}" alt="Picture of app.">
         </a>
-			          <div class="shopText1">{{items.name}}</div>
-                  <div class="shopText2">${{items.price}}</div>
+			          <div class="shopText1">{{name}}</div>
+                  <div class="shopText2">${{this.price}}</div>
                     <button type="button" id="shopButton">PRODUCT DETAILS</button>
 
 

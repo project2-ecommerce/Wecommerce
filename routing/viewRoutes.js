@@ -25,16 +25,22 @@ module.exports = function(app, passport) {
       loggedIn: loggedInView(req)
     });
   });
-  app.get('/tents', function (req, res) {
+  app.get('/products/:category', function (req, res) {
     db.Products.findAll({
-      where:{category:"tent"}
+      where:{category:req.params.category}
+
     }).then(function(results){
-      console.log(results);
+      var item = [];
+      for (var i = 0; i < results.length; i++){
+        item.push(results[i].dataValues)
+
+      }
+      console.log(item);
       res.render("tents", {
       title: "Tents - Wecommerce",
       css: "products.css",
       javascript: "index.js",
-      items:results
+      item:item
       });
     });
   });
