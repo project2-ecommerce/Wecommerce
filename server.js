@@ -28,6 +28,8 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 //Routes
 require("./routing/viewRoutes.js")(app, passport);
+require("./routing/cartRoutes.js")(app, passport);
+require("./routing/fbRoutes.js")(app, passport);
 // Start the server
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {

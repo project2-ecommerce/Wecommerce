@@ -2,7 +2,6 @@ var db = require("../models");
 module.exports = function(app, passport) {
   //index route for landing page
   app.get("/", function(req, res) {
-    console.log(req.cookies.cart);
     res.render("index", {
       title: "Wecommerce",
       css: "index.css",
@@ -27,47 +26,28 @@ module.exports = function(app, passport) {
       loggedIn: loggedInView(req)
     });
   });
-  app.get("/cart", function(req, res) {
-    if (req.user) {
-      db.Cart.findOne({
-        where: {
-          purchased: false,
-          user: req.user.facebook_id
-        }, 
-        Order: [['updatedAt', 'DESC']]
-      }).then(function(result){
-        // console.log(result);
-      });
-    }
-    res.render("shoppingcart", {
-      title: "Cart",
-      css: "shoppingCart.css",
-      javascript: "shoppingCart.js",
-      loggedIn: loggedInView(req)
-    });
-  });
-
+  
   // route for showing the profile page
   app.get("/profile", isLoggedIn, function(req, res) {
     db.Cart.findOne({
-      where:{sessionID: req.sessionID}
-    }).then(function(result){
+      where: { sessionID: req.sessionID }
+    }).then(function(result) {
       if (result) {
         db.Cart.update({
           user: req.user.facebook_id,
           where: {
             sessionID: req.sessionID
           }
-        }).then(function(result){
-          console.log('first result');
+        }).then(function(result) {
+          console.log("first result");
         });
       } else {
         db.Cart.create({
           sessionID: req.sessionID,
           user: req.user.facebook_id,
           purchased: false
-        }).then(function(result){
-          console.log('second result');
+        }).then(function(result) {
+          console.log("second result");
         });
       }
     });
@@ -81,11 +61,17 @@ module.exports = function(app, passport) {
 
   // POST ROUTES
   app.post("/addtocart/:category/:itemid", function(req, res) {
+    var user;
+    if (req.user) {
+      user = req.user.facebook_id;
+    }
     db.Cart.findOrCreate({
       where: {
-        sessionID: req.sessionID,
-        purchased: false,
-        user: req.body.id
+        sessionID: req.sessionID
+      },
+      defaults: {
+        user: user,
+        purchased: false
       }
     }).then(function(result) {
       db.CartItems.findOrCreate({
@@ -99,33 +85,7 @@ module.exports = function(app, passport) {
       });
     });
   });
-  // =====================================
-  // FACEBOOK ROUTES =====================
-  // =====================================
-  // route for facebook authentication and login
-  app.get(
-    "/auth/facebook",
-    passport.authenticate("facebook", {
-      scope: ["public_profile", "email"]
-    })
-  );
-
-  // handle the callback after facebook has authenticated the user
-  app.get(
-    "/auth/facebook/callback",
-    passport.authenticate("facebook", {
-      successRedirect: "/profile",
-      failureRedirect: "/"
-    })
-  );
-
-  // route for logging out
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-}; //end of export
-
+};
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
   // if user is authenticated in the session, carry on
