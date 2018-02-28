@@ -9,6 +9,7 @@ module.exports = function(app, passport) {
       loggedIn: loggedInView(req)
     });
   });
+
   app.get("/learn-more", function(req, res) {
     res.render("learnMore", {
       title: "Learn More",
@@ -25,18 +26,31 @@ module.exports = function(app, passport) {
       loggedIn: loggedInView(req)
     });
   });
-  app.get("/cart", function(req, res) {
-    res.render("shoppingcart", {
-      title: "Cart",
-      css: "shoppingCart.css",
-      javascript: "shoppingCart.js",
-      loggedIn: loggedInView(req)
-    });
-  });
-
+  
   // route for showing the profile page
   app.get("/profile", isLoggedIn, function(req, res) {
-    console.log(req.user);
+    db.Cart.findOne({
+      where: { sessionID: req.sessionID }
+    }).then(function(result) {
+      if (result) {
+        db.Cart.update({
+          user: req.user.facebook_id,
+          where: {
+            sessionID: req.sessionID
+          }
+        }).then(function(result) {
+          console.log("first result");
+        });
+      } else {
+        db.Cart.create({
+          sessionID: req.sessionID,
+          user: req.user.facebook_id,
+          purchased: false
+        }).then(function(result) {
+          console.log("second result");
+        });
+      }
+    });
     res.render("profile", {
       title: "Your Profile",
       css: "profile.css",
@@ -44,86 +58,7 @@ module.exports = function(app, passport) {
       loggedIn: loggedInView(req)
     });
   });
-
-  // POST ROUTES
-  app.post("/:category/:itemid", function(req, res) {
-    // NOTE: THIS SECTION IS UNDER CONSTRUCTION, ONLY UNCOMMENT FOR TESTING
-    // console.log(req.body);
-    // console.log(req.sessionID);
-    // console.log(req.user);
-    
-    // if user doesn't have a cart upon adding an item, make a cart
-    // db.Cart.findOrCreate({
-    //   where: {
-    //     sessionID: req.sessionID,
-    //     purchased: false
-    //   }
-    // }).then(function(result) {
-    //   // save cartID for later
-    //   var cartID = result[0].dataValues.id;
-    //   // check if this item has already been added to the cart to prevent dublicates
-    //   db.CartItems.findOne({
-    //     where: {
-    //       cartID: cartID,
-    //       itemID: req.params.itemid
-    //     }
-    //   }).then(function(result) {
-    //     // if the item of that id is already in cart, just update the item quantity
-    //     if (result) {
-    //       db.CartItems.update(
-    //         {
-    //           itemQuantity:
-    //             result.dataValues.itemQuantity + req.body.itemQuantity
-    //         },
-    //         {
-    //           where: {
-    //             itemID: req.params.itemid
-    //           }
-    //         }
-    //       ).then(function(result) {
-    //         res.json(result);
-    //       });
-    //     } else {
-    //       // if the item is not already in the cart, add the new item to the cart
-    //       db.CartItems.create({
-    //         cartID: cartID,
-    //         itemID: req.params.itemid,
-    //         itemQuantity: req.body.itemQuantity,
-    //         itemPrice: req.body.itemPrice
-    //       }).then(function(result) {
-    //         res.json(result);
-    //       });
-    //     }
-    //   });
-    // });
-  });
-  // =====================================
-  // FACEBOOK ROUTES =====================
-  // =====================================
-  // route for facebook authentication and login
-  app.get(
-    "/auth/facebook",
-    passport.authenticate("facebook", {
-      scope: ["public_profile", "email"]
-    })
-  );
-
-  // handle the callback after facebook has authenticated the user
-  app.get(
-    "/auth/facebook/callback",
-    passport.authenticate("facebook", {
-      successRedirect: "/profile",
-      failureRedirect: "/"
-    })
-  );
-
-  // route for logging out
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-}; //end of export
-
+};
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
   // if user is authenticated in the session, carry on
