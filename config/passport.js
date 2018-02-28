@@ -43,7 +43,7 @@ module.exports = function(passport, user) {
         if (profile.id === "402943280150235") {
           admin = true;
         }
-        console.log(profile);
+        // console.log(profile);
         if (!req.user) {
           db.User.findOne({ where: { facebook_id: profile.id } }).then(function(
             user
