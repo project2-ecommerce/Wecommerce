@@ -2,6 +2,7 @@ var db = require("../models");
 module.exports = function(app, passport) {
   //index route for landing page
   app.get("/", function(req, res) {
+    console.log(req.sessionID);
     res.render("index", {
       title: "Wecommerce",
       css: "index.css",
@@ -27,6 +28,17 @@ module.exports = function(app, passport) {
     });
   });
   app.get("/cart", function(req, res) {
+    if (req.user) {
+      db.Cart.findOne({
+        where: {
+          purchased: false,
+          user: req.user.facebook_id
+        }, 
+        Order: [['updatedAt', 'DESC']]
+      }).then(function(result){
+        // console.log(result);
+      });
+    }
     res.render("shoppingcart", {
       title: "Cart",
       css: "shoppingCart.css",
@@ -37,7 +49,28 @@ module.exports = function(app, passport) {
 
   // route for showing the profile page
   app.get("/profile", isLoggedIn, function(req, res) {
-    console.log(req.user);
+    db.Cart.findOne({
+      where:{sessionID: req.sessionID}
+    }).then(function(result){
+      if (result) {
+        db.Cart.update({
+          user: req.user.facebook_id,
+          where: {
+            sessionID: req.sessionID
+          }
+        }).then(function(result){
+          console.log('first result');
+        });
+      } else {
+        db.Cart.create({
+          sessionID: req.sessionID,
+          user: req.user.facebook_id,
+          purchased: false
+        }).then(function(result){
+          console.log('second result');
+        });
+      }
+    });
     res.render("profile", {
       title: "Your Profile",
       css: "profile.css",
@@ -47,8 +80,7 @@ module.exports = function(app, passport) {
   });
 
   // POST ROUTES
-  app.post("/:category/:itemid", function(req, res) {
-    var itemid = req.params.itemid;
+  app.post("/addtocart/:category/:itemid", function(req, res) {
     db.Cart.findOrCreate({
       where: {
         sessionID: req.sessionID,
