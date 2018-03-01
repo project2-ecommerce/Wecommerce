@@ -33,6 +33,7 @@ app.use(session({ secret: 'zomaareenstukjetekstDatjenietzomaarbedenkt' })); // s
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 //Routes
+require("./routing/apiRoutes.js")(app, passport);
 require("./routing/viewRoutes.js")(app, passport);
 require("./routing/cartRoutes.js")(app, passport);
 require("./routing/fbRoutes.js")(app, passport);
