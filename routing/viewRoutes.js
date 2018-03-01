@@ -36,14 +36,34 @@ module.exports = function(app, passport) {
 
       }
       console.log(item);
-      res.render("tents", {
-      title: "Tents - Wecommerce",
+      res.render("products", {
+      title: "Products - Wecommerce",
       css: "products.css",
       javascript: "index.js",
       item:item
       });
     });
   });
+
+  app.get('/products/:category/:id', function (req, res) {
+    console.log(req.params.category);
+    console.log(req.params.id);
+    db.Products.findAll({
+      where:{id:req.params.id}
+
+    }).then(function(results){
+    console.log(results);
+
+      res.render("productFront", {
+      title: "Product - Wecommerce",
+      css: "products.css",
+      javascript: "index.js",
+      item:results[0].dataValues
+      });
+    });
+  });
+
+
   app.get("/cart", function(req, res) {
     res.render("shoppingcart", {
       title: "Cart",
