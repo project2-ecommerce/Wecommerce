@@ -4,7 +4,6 @@ module.exports = function(app, passport) {
   app.get("/cart", function(req, res) {
     var items = [];
     var products = [];
-    var priceTotal;
     db.Cart.findOne({
       where: {
         purchased: false,
@@ -26,12 +25,8 @@ module.exports = function(app, passport) {
           for (var i = 0; i < items.length; i++) {
             products.push(items[i].Product.dataValues);
           }
-          for (var i = 0; i < products.length; i++) {
-            priceTotal += parseFloat(products[i].price);
-          }
           console.log(items);
           console.log(products);
-          console.log(priceTotal);
           res.render("shoppingcart", {
             title: "Cart",
             css: "shoppingCart.css",
@@ -78,10 +73,10 @@ module.exports = function(app, passport) {
       });
     });
   });
-  // update item quantity from shopping cart
+  // UPDATE item quantity from shopping cart
   app.post("/updateitem/:id", function(req, res) {
-    db.cartItems
-      .update({
+    console.log(req.body);
+    db.cartItems.update({
         quantity: req.body.quantity,
         where: {
           id: req.params.id

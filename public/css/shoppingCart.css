@@ -335,6 +335,9 @@ aside {
     height: 34px;
     width: 100%;
 }
+#updateQuantity {
+    padding: 10px;
+}
 
 @media screen and (max-width: 640px) {
     aside,

@@ -1,5 +1,19 @@
 $(document).ready(function() {
-    /* Set values + misc */
+  $(".updateQuantityBtn").on("click", function() {
+    event.preventDefault();
+    var id = $(this).data("cartitem");
+    var body = {
+      quantity: $("#updateQuantityVal").val()
+    };
+    $.ajax({
+      method: 'POST',
+      url: '/updateitem/' + id,
+      data: body
+    }).done(function(data){
+      console.log(data);
+    });
+  });
+  /* Set values + misc */
   var promoCode;
   var promoPrice;
   var fadeTime = 300;
