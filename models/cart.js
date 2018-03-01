@@ -11,4 +11,4 @@ module.exports = function(sequelize, DataTypes) {
       Cart.hasMany(models.CartItems);
     };
     return Cart;
-}
+};
