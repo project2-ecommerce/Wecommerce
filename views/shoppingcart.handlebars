@@ -14,22 +14,23 @@
                 <li class="subtotal">Subtotal</li>
             </ul>
         </div>
+        {{#each products}}
         <div class="basket-product">
             <div class="item">
                 <div class="product-image">
-                    <img src="../img/tent_1.jpg" alt="Placholder Image 2" class="product-frame">
+                    <img src="../public/img/{{this.image}}" alt="Placholder Image 2" class="product-frame">
                 </div>
                 <div class="product-details">
                     <h1>
                         <strong>
-                            <span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1>
+                            <span class="item-quantity">{{items.quantity}}</span> x </strong>{{this.name}}</h1>
                     <p>
                         <strong>Navy, Size 18</strong>
                     </p>
-                    <p>Product Code - 232321939</p>
+                    <p>{{this.id}}</p>
                 </div>
             </div>
-            <div class="price">26.00</div>
+            <div class="price">{{this.price}}</div>
             <div class="quantity">
                 <input type="number" value="4" min="1" class="quantity-field">
             </div>
@@ -38,6 +39,9 @@
                 <button>Remove</button>
             </div>
         </div>
+<<<<<<< HEAD
+        {{/each}}
+=======
         <div class="basket-product">
             <div class="item">
                 <div class="product-image">
@@ -62,6 +66,7 @@
                 <button>Remove</button>
             </div>
         </div>
+>>>>>>> master
     </div>
     <aside>
         <div class="summary">
