@@ -2,63 +2,47 @@ var db = require("../models");
 module.exports = function(app, passport) {
   // shopping cart view route
   app.get("/cart", function(req, res) {
-    if (req.user) {
-      db.Cart.findOne({
-        where: {
-          purchased: false,
-          user: req.user.facebook_id
-        },
-        Order: [["updatedAt", "DESC"]]
-      }).then(function(result) {
+    var items = [];
+    var products = [];
+    db.Cart.findOne({
+      where: {
+        purchased: false,
+        sessionID: req.sessionID
+      }
+    }).then(function(result) {
+      if (result) {
         db.CartItems.findAll({
-          where: { cartId: result.dataValues.id }
+          where: { cartId: result.dataValues.id },
+          include: [
+            {
+              model: db.Products
+            }
+          ]
         }).then(function(result) {
-          var items = [];
           for (var i = 0; i < result.length; i++) {
             items.push(result[i].dataValues);
           }
+          for (var i = 0; i < items.length; i++) {
+            products.push(items[i].Product.dataValues);
+          }
+          console.log(products);
           res.render("shoppingcart", {
             title: "Cart",
             css: "shoppingCart.css",
             javascript: "shoppingCart.js",
-            items: items,
+            products: products,
             loggedIn: loggedInView(req)
           });
         });
-      });
-    } else {
-      db.Cart.findOne({
-        where: {
-          purchased: false,
-          sessionID: req.sessionID
-        }
-      }).then(function(result) {
-        if (result) {
-          db.CartItems.findAll({
-            where: { cartId: result.dataValues.id }
-          }).then(function(result) {
-            var items = [];
-            for (var i = 0; i < result.length; i++) {
-              items.push(result[i].dataValues);
-            }
-            res.render("shoppingcart", {
-              title: "Cart",
-              css: "shoppingCart.css",
-              javascript: "shoppingCart.js",
-              items: items,
-              loggedIn: loggedInView(req)
-            });
-          });
-        } else {
-          res.render("shoppingcart", {
-            title: "Cart",
-            css: "shoppingCart.css",
-            javascript: "shoppingCart.js",
-            loggedIn: loggedInView(req)
-          });
-        }
-      });
-    }
+      } else {
+        res.render("shoppingcart", {
+          title: "Cart",
+          css: "shoppingCart.css",
+          javascript: "shoppingCart.js",
+          loggedIn: loggedInView(req)
+        });
+      }
+    });
   });
   // Add product to shopping cart from page
   app.post("/addtocart/:category/:itemid", function(req, res) {
