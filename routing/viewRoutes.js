@@ -3,7 +3,7 @@ module.exports = function(app, passport) {
   //index route for landing page
   app.get("/", function(req, res) {
     res.render("index", {
-      title: "Wecommerce",
+      title: "Range Front",
       css: "index.css",
       javascript: "index.js",
       loggedIn: loggedInView(req)
