@@ -8,7 +8,6 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 var stripe = require("stripe")("sk_test_OH63QANsfLtddjDsbkWH122t");
-// var token = request.body.stripeToken;
 
 // Set up express app
 var app = express();
@@ -36,6 +35,7 @@ app.use(passport.session()); // persistent login sessions
 require("./routing/viewRoutes.js")(app, passport);
 require("./routing/cartRoutes.js")(app, passport);
 require("./routing/fbRoutes.js")(app, passport);
+require("./routing/stripePost.js")(app, passport);
 // Start the server
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {

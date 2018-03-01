@@ -54,6 +54,7 @@ $(document).ready(function() {
 
     /* Calculate totals */
     var total = subtotal;
+    console.log(total);
 
     //If there is a valid promoCode, and subtotal < 10 subtract from total
     var promoPrice = parseFloat($(".promo-value").text());
@@ -71,6 +72,7 @@ $(document).ready(function() {
       /* Update total display */
       $(".total-value").fadeOut(fadeTime, function() {
         $("#basket-total").html(total.toFixed(2));
+        $("#cart-form").data("amount", total.toFixed(2));
         $(".total-value").fadeIn(fadeTime);
       });
     } else {
@@ -86,6 +88,7 @@ $(document).ready(function() {
         $(".final-value").fadeIn(fadeTime);
       });
     }
+    return total;
   }
 
   /* Update quantity */
