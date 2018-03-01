@@ -4,7 +4,7 @@
 }
 
 p {
-        margin-bottom: -.08em;
+    margin-bottom: -.08em;
 }
 
 a {
@@ -170,11 +170,26 @@ button {
 }
 /* End shopping tiles */
 
+/* Accepted payments section */
 .accepted-payment {
+    display: flex;
     height: 580px;
     width: 1440px;
     background-image: url("../img/topography.png");
 }
+
+#credit-card {
+    width: 900px;
+    position: relative;
+    top: 140px;
+}
+
+#bitcoin {
+    width: 280px;
+    position: relative;
+    top: 140px;
+}
+/* End accepted payments */
 
 .footer {
     height: 140px;
