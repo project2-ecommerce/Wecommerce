@@ -10,9 +10,18 @@ $(document).ready(function() {
       method: 'POST',
       url: '/updateitem/' + id,
       data: body
-    }).done(function(data){
-      console.log(data);
-    });
+    }).done(function(data){});
+  });
+  // DELETE cart item from database
+  $(".remove").on("click", function(){
+    event.preventDefault();
+    var id = $(this).data('cartitem');
+    var body = {};
+    $.ajax({
+      method: 'POST',
+      url: '/deleteitem/' + id,
+      data: body
+    }).done(function(data){});
   });
 
   /* Set values + misc */

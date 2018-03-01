@@ -62,7 +62,6 @@ module.exports = function(app, passport) {
         purchased: false
       }
     }).then(function(result) {
-      console.log(req.body);
       db.CartItems.findOrCreate({
         where: {
           CartId: result[0].dataValues.id,
@@ -76,7 +75,6 @@ module.exports = function(app, passport) {
   });
   // UPDATE item quantity from shopping cart
   app.post("/updateitem/:id", function(req, res) {
-    console.log(req.body);
     db.CartItems.update({
         quantity: req.body.quantity},{
         where: {
@@ -90,11 +88,11 @@ module.exports = function(app, passport) {
   // delete item from shopping cart
   app.post("/deleteitem/:id", function(req, res) {
     db.CartItems
-      .delete({
+      .destroy({
         where: { id: req.params.id }
       })
       .then(function(result) {
-        res.redirect("/cart");
+        res.json(result);
       });
   });
 };
