@@ -10,9 +10,16 @@
             <a href='/products/sleepingbag'>SLEEPING BAGS</a>
             <a href='/products/backpack'>BACKPACKS</a>
         </div>
+
         <div>
-            <a href='/api/signIn'>SIGN IN</a>
-            <a href='/api/cart'>CART</a>
+            {{#if loggedIn}}
+            <a href="/logout" class="btn btn-primary">
+                <span class="fa fa-facebook-official"></span> Logout</a>
+            {{else}}
+            <a href="/auth/facebook" class="btn btn-primary">
+                <span class="fa fa-facebook-official"></span> Facebook Login</a>
+            {{/if}}
+            <a href='/cart'>CART</a>
         </div>
         </div>
         <div class='header-copy'>
@@ -23,21 +30,25 @@
             <p id='third-line'>Whether you're a weekend warrior or a<br> Navy SEAL, we've got you covered.</p> -->
         </div>
     </div>
+    <div class="displayCase">
 {{#each item}}
     <div class='marketing'>
       <div class="shopWrap">
+        <a href="/products/{{category}}/{{id}}" target="_blank">
 			       <img class="shopImage" src="../img/{{image}}" alt="Picture of app.">
+        </a>
 			          <div class="shopText1">{{name}}</div>
                   <div class="shopText2">${{this.price}}</div>
                     <a href="/products/{{category}}/{{id}}" target="_blank">
-                      <button type="button" id="shopButton">PRODUCT DETAILS
-                      </button>
+                      <!-- <button type="button" id="shopButton">PRODUCT DETAILS -->
+                      <!-- </button> -->
                     </a>
 
-</div>
+        </div>
         <!-- <button type="button" id='clearance'>SHOP CLEARANCE</button> -->
     </div>
 {{/each}}
+</div>
     <div class='accepted-payment'>
 
     </div>

@@ -33,7 +33,7 @@ button {
 }
 
 .header {
-    height: 480px;
+    height: 165px;
     width: 1440px;
     background-image: url("../img/main_img.png");
 }
@@ -71,7 +71,7 @@ button {
     height: 55px;
     width: 1440px;
     position: relative;
-    top: 70px;
+    top: 110px;
     background-color: #C65837;
     opacity: .8;
     padding-left: 132px;
@@ -79,10 +79,12 @@ button {
 }
 
 .marketing {
-    height: 607px;
-    width: 1440px;
+    /* height: 607px;
+    width: 1440px; */
+    width:33%;
     background-image: url("../img/topography.png");
     text-align: center;
+    display:inline;
 }
 
 .accepted-payment {
@@ -111,17 +113,19 @@ button {
 }
 
 .shopWrap {
+    display:inline-block;
     float: left;
     top: 20px;
     background-color: #FFFFFF;
     padding: 20px;
-    /* width: 440px; */
-    /* clear: left; */
+    /* width: 400px;
+    height: 400px; */
+
 }
 
 .shopImage {
     width: 400px;
-    height: 400px;
+    height: auto;
 }
 
 .shopText1 {
@@ -155,4 +159,20 @@ button {
     position: relative;
     top: 50px;
     height: 40px;
+}
+.displayCase {
+  display:inline;
+}
+
+.shopFrontText1 {
+float: left;
+padding-left: 20px;
+}
+
+.shopFrontWrap {
+  padding-top: 60px;
+}
+
+.shopFrontImage {
+  padding-top:20px;
 }

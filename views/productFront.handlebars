@@ -11,8 +11,16 @@
             <a href='/products/backpack'>BACKPACKS</a>
         </div>
         <div>
-            <a href='/api/signIn'>SIGN IN</a>
-            <a href='/api/cart'>CART</a>
+          <div>
+              {{#if loggedIn}}
+              <a href="/logout" class="btn btn-primary">
+                  <span class="fa fa-facebook-official"></span> Logout</a>
+              {{else}}
+              <a href="/auth/facebook" class="btn btn-primary">
+                  <span class="fa fa-facebook-official"></span> Facebook Login</a>
+              {{/if}}
+              <a href='/cart'>CART</a>
+          </div>
         </div>
         </div>
         <div class='header-copy'>
@@ -24,12 +32,13 @@
         </div>
     </div>
     <div class='marketing'>
-      <div class="shopWrap">
+      <div class="shopFrontWrap">
+        <div class="shopFrontText1">{{item.name}}</div>
         <a href=# target="_blank">
-			       <img class="shopImage" src="../img/{{item.image}}" alt="Picture of app.">
+			       <img class="shopFrontImage" src="../../img/{{item.image}}" alt="Picture of app.">
         </a>
-			          <div class="shopText1">{{name}}</div>
-                  <div class="shopText2">${{this.price}}</div>
+			     
+                  <div class="shopFrontText2">${{item.price}}</div>
                     <!-- <button type="button" id="shopButton">PRODUCT DETAILS</button> -->
 
 

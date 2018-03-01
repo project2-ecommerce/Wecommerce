@@ -46,19 +46,16 @@ module.exports = function(app, passport) {
   });
 
   app.get('/products/:category/:id', function (req, res) {
-    console.log(req.params.category);
-    console.log(req.params.id);
-    db.Products.findAll({
-      where:{id:req.params.id}
+    db.Products.findById(
+      req.params.id
 
-    }).then(function(results){
+    ).then(function(results){
     console.log(results);
-
       res.render("productFront", {
       title: "Product - Wecommerce",
       css: "products.css",
       javascript: "index.js",
-      item:results[0].dataValues
+      item:results
       });
     });
   });
