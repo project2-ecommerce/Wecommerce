@@ -1,5 +1,10 @@
 var db = require("../models");
 module.exports = function(app, passport) {
+  app.get("/test", function(req,res){
+    res.render("test", {
+      javascript: 'productSubmit.js'
+    });
+  });
   //index route for landing page
   app.get("/", function(req, res) {
     res.render("index", {
@@ -34,11 +39,11 @@ module.exports = function(app, passport) {
     }).then(function(result) {
       if (result) {
         db.Cart.update({
-          user: req.user.facebook_id,
+          user: req.user.facebook_id},{
           where: {
             sessionID: req.sessionID
           }
-        }).then(function(result) {
+       }).then(function(result) {
           console.log("first result");
         });
       } else {

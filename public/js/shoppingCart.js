@@ -1,9 +1,10 @@
 $(document).ready(function() {
+  // UPDATE cart quantities in our database
   $(".updateQuantityBtn").on("click", function() {
     event.preventDefault();
     var id = $(this).data("cartitem");
     var body = {
-      quantity: $("#updateQuantityVal").val()
+      quantity: $(this).parent().children().val()
     };
     $.ajax({
       method: 'POST',
@@ -13,6 +14,7 @@ $(document).ready(function() {
       console.log(data);
     });
   });
+
   /* Set values + misc */
   var promoCode;
   var promoPrice;

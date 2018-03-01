@@ -48,6 +48,7 @@ module.exports = function(app, passport) {
   });
   // Add product to shopping cart from page
   app.post("/addtocart/:category/:itemid", function(req, res) {
+    console.log(req.body);
     var user;
     if (req.user) {
       user = req.user.facebook_id;
@@ -68,16 +69,16 @@ module.exports = function(app, passport) {
           ProductId: req.params.itemid,
           quantity: req.body.quantity
         }
-      }).then(function(result) {
-        res.redirect("/cart");
+      }).then(function(result){
+        res.json(result);
       });
     });
   });
   // UPDATE item quantity from shopping cart
   app.post("/updateitem/:id", function(req, res) {
     console.log(req.body);
-    db.cartItems.update({
-        quantity: req.body.quantity,
+    db.CartItems.update({
+        quantity: req.body.quantity},{
         where: {
           id: req.params.id
         }
@@ -88,7 +89,7 @@ module.exports = function(app, passport) {
   });
   // delete item from shopping cart
   app.post("/deleteitem/:id", function(req, res) {
-    db.cartItems
+    db.CartItems
       .delete({
         where: { id: req.params.id }
       })
