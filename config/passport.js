@@ -2,12 +2,8 @@
 var keys = require('../keys.js');
 var FacebookStrategy = require("passport-facebook").Strategy;
 var db = require("../models");
-
 // load up the user model
 var User = require("../models/user.js");
-
-// load the auth variables
-var configAuth = require("./auth");
 
 module.exports = function(passport, user) {
   // used to serialize the user for the session
