@@ -3,10 +3,20 @@
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 body {
-    background-image: url("../img/rock_climbing.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 p {
@@ -26,6 +36,7 @@ button {
     width: 180px;
     font-family: Raleway-Regular;
     font-size: 16px;
+    background-color: #2E5564;
     color: #FFFFFF;
 }
 
@@ -36,10 +47,10 @@ button {
 }
 
 #learn {
-    background-color: #2E5564;
     position: relative;
-    top: 348px;
     left: 132px;
+    height: 42px;
+    width: 180px;
 }
 /* End button style */
 
@@ -47,20 +58,21 @@ button {
     max-width: 1440px;
 }
 
-.grid-container {
-    display: grid;
-    grid-column-gap: 20px;
-    /* grid-template-columns: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px;
-    grid-template-rows: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px; */
-}
-
 .header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     height: 480px;
-    width: 1440px;
+    width: 100%;
     background-image: url("../img/main_img.png");
 }
 
 .header-copy {
+    align-self: flex-start;
+    /* background-color: powderblue; */
+    /* opacity: 0.4; */
+    position: relative;
+    top: 100px;
     color: #DF997D;
 }
 
@@ -91,9 +103,9 @@ button {
 
 .navbar {
     height: 55px;
-    width: 1440px;
+    width: 100%;
     position: relative;
-    top: 70px;
+    top: 110px;
     background-color: #C65837;
     opacity: .8;
     padding-left: 132px;
@@ -109,13 +121,15 @@ button {
 
 /* Shopping tiles */
 .shopping-tiles {
-    background-color: black;
     display: flex;
+    flex-wrap: wrap;
+    background-color: black;
 }
 
 #shop-tents {
     height: 480px;
     width: 33.33%;
+    min-width: 480px;
     position: relative;
     text-align: center;
     color: white;
@@ -134,6 +148,7 @@ button {
 #shop-sleepingBags {
     height: 480px;
     width: 33.33%;
+    min-width: 480px;
     position: relative;
     text-align: center;
     color: white;
@@ -152,6 +167,7 @@ button {
 #shop-backpacks {
     height: 480px;
     width: 33.33%;
+    min-width: 480px;
     position: relative;
     text-align: center;
     color: white;
@@ -179,29 +195,39 @@ button {
 /* Accepted payments section */
 .accepted-payment {
     display: flex;
+    flex-wrap: wrap;
     height: 580px;
     width: 1440px;
     background-image: url("../img/topography.png");
 }
 
+.section {
+    width: 720px;
+}
+
 #credit-card {
-    width: 900px;
+    width: 400px;
     position: relative;
     top: 140px;
+    left: 150px;
+    text-align: center;
 }
 
 #bitcoin {
     width: 280px;
     position: relative;
-    top: 140px;
+    top: 120px;
+    left: 190px;
+    text-align: center;
 }
 /* End accepted payments */
 
 .empty-section {
     height: 680px;
     width: 1440px;
-    background-color: none;
-    display: flex;
+    background-image: url("../img/rock_climber.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .footer {
