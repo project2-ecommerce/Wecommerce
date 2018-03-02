@@ -1,5 +1,30 @@
 $(document).ready(function() {
-    /* Set values + misc */
+  // UPDATE cart quantities in our database
+  $(".updateQuantityBtn").on("click", function() {
+    event.preventDefault();
+    var id = $(this).data("cartitem");
+    var body = {
+      quantity: $(this).parent().children().val()
+    };
+    $.ajax({
+      method: 'POST',
+      url: '/updateitem/' + id,
+      data: body
+    }).done(function(data){});
+  });
+  // DELETE cart item from database
+  $(".remove").on("click", function(){
+    event.preventDefault();
+    var id = $(this).data('cartitem');
+    var body = {};
+    $.ajax({
+      method: 'POST',
+      url: '/deleteitem/' + id,
+      data: body
+    }).done(function(data){});
+  });
+
+  /* Set values + misc */
   var promoCode;
   var promoPrice;
   var fadeTime = 300;
