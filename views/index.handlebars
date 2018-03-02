@@ -1,27 +1,27 @@
 <div class='main-container'>
-    <div class='grid-container'>
+    <section>
         <div class='header'>
             <a href='/learn-more'>
                 <button id='learn'> LEARN MORE</button>
             </a>
-        <div class='navbar'>
-            <div>
-                <a href='/about-us'>ABOUT US</a>
-                <a href='/api/tents'>TENTS</a>
-                <a href='/api/sleeping-bags'>SLEEPING BAGS</a>
-                <a href='/api/backpacks'>BACKPACKS</a>
+            <div class='navbar'>
+                <div>
+                    <a href='/about-us'>ABOUT US</a>
+                    <a href='/api/tents'>TENTS</a>
+                    <a href='/api/sleeping-bags'>SLEEPING BAGS</a>
+                    <a href='/api/backpacks'>BACKPACKS</a>
+                </div>
+                <div>
+                    {{#if loggedIn}}
+                    <a href="/logout" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Logout</a>
+                    {{else}}
+                    <a href="/auth/facebook" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Facebook Login</a>
+                    {{/if}}
+                    <a href='/cart'>CART</a>
+                </div>
             </div>
-            <div>
-                {{#if loggedIn}}
-                <a href="/logout" class="btn btn-primary">
-                    <span class="fa fa-facebook-official"></span> Logout</a>
-                {{else}}
-                <a href="/auth/facebook" class="btn btn-primary">
-                    <span class="fa fa-facebook-official"></span> Facebook Login</a>
-                {{/if}}
-                <a href='/cart'>CART</a>
-            </div>
-        </div>
             <div class='header-copy'>
                 <p id='first-line'>For the love of</p>
                 <br>
@@ -31,7 +31,8 @@
                     <br> Navy SEAL, we've got you covered.</p>
             </div>
         </div>
-    </div>
+    </section>
+    <section>
         <div class='shopping-tiles'>
             <div id='shop-tents'>
                 <a href='/api/tents'>
@@ -46,17 +47,21 @@
                 </a>
             </div>
             <div id='shop-backpacks'>
-                    <a href='/api/sleeping-bags'>
+                    <a href='/api/backpacks'>
                         <img src='../img/shop_backpacks.jpg' alt='Shop Backpacks' id='packs-tile'>
                         <div class="centered">Shop Backpacks</div>
                     </a>
             </div>
         </div>
+    </section>
+    <section>
         <div class='marketing'>
             <a href='/api/clearance'>
                 <button id='clearance'>SHOP CLEARANCE</button>
             </a>
         </div>
+    </section>
+    <section>
         <div class='accepted-payment'>
             <div class='section'>
                 <img src='../img/credit_card.png' alt='Credit Card' id='credit-card'>
@@ -65,9 +70,13 @@
                 <img src='../img/bitcoin.png' alt='Credit Card' id='bitcoin'>
             </div>
         </div>
+    </section>
+    <section>
         <div class='empty-section'>
 
         </div>
+    </section>
+    <section>
         <div class='footer'>
             <div class='social'>
                 <a href='https://www.facebook.com' target='_blank'><img src='/img/facebook.svg' alt='facebook' class='social-icon'></a>
@@ -83,5 +92,5 @@
                 </span> Created By: Pete Garcia, Mark Alaniz, &amp; Will Blake 2018 &copy;
             </p>
         </div>
-    </div>
+    </section>
 </div>
