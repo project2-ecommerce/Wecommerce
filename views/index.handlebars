@@ -1,17 +1,19 @@
 <div class='main-container'>
     <section>
         <div class='header'>
-            <div class='navbar'>
+            <div class='navbar container-fluid'>
                 <div>
+                    <a href='/'>HOME</a>
                     <a href='/about-us'>ABOUT US</a>
-                    <a href='/api/tents'>TENTS</a>
-                    <a href='/api/sleeping-bags'>SLEEPING BAGS</a>
-                    <a href='/api/backpacks'>BACKPACKS</a>
+                    <a href='/tents'>TENTS</a>
+                    <a href='/sleepingbags'>SLEEPING BAGS</a>
+                    <a href='/backpacks'>BACKPACKS</a>
                 </div>
                 <div>
                     {{#if loggedIn}}
                     <a href="/logout" class="btn btn-primary">
                         <span class="fa fa-facebook-official"></span> Logout</a>
+                    <a href='/profile'>PROFILE</a>
                     {{else}}
                     <a href="/auth/facebook" class="btn btn-primary">
                         <span class="fa fa-facebook-official"></span> Facebook Login</a>
@@ -47,10 +49,10 @@
                 </a>
             </div>
             <div id='shop-backpacks'>
-                    <a href='/api/backpacks'>
-                        <img src='../img/shop_backpacks.jpg' alt='Shop Backpacks' id='packs-tile'>
-                        <div class="centered">Shop Backpacks</div>
-                    </a>
+                <a href='/api/backpacks'>
+                    <img src='../img/shop_backpacks.jpg' alt='Shop Backpacks' id='packs-tile'>
+                    <div class="centered">Shop Backpacks</div>
+                </a>
             </div>
         </div>
     </section>
@@ -79,10 +81,18 @@
     <section>
         <div class='footer'>
             <div class='social'>
-                <a href='https://www.facebook.com' target='_blank'><img src='/img/facebook.svg' alt='facebook' class='social-icon'></a>
-                <a href='https://www.twitter.com' target='_blank'><img src='/img/twitter.svg' alt='twitter' class='social-icon'></a>
-                <a href='https://www.instagram.com' target='_blank'><img src='/img/instagram.svg' alt='instagram' class='social-icon'></a>
-                <a href='https://plus.google.com/' target='_blank'><img src='/img/google+.svg' alt='google+' class='social-icon'></a>
+                <a href='https://www.facebook.com' target='_blank'>
+                    <img src='/img/facebook.svg' alt='facebook' class='social-icon'>
+                </a>
+                <a href='https://www.twitter.com' target='_blank'>
+                    <img src='/img/twitter.svg' alt='twitter' class='social-icon'>
+                </a>
+                <a href='https://www.instagram.com' target='_blank'>
+                    <img src='/img/instagram.svg' alt='instagram' class='social-icon'>
+                </a>
+                <a href='https://plus.google.com/' target='_blank'>
+                    <img src='/img/google+.svg' alt='google+' class='social-icon'>
+                </a>
             </div>
             <p class="footer-block">
                 <span>
