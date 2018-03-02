@@ -1,13 +1,15 @@
 // Dependencies
+require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var request = require("request");
+var keys = require('./keys.js')
 
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
-var stripe = require("stripe")("sk_test_OH63QANsfLtddjDsbkWH122t");
+var stripe = require("stripe")(keys.stripe);
 
 // Set up express app
 var app = express();
@@ -28,7 +30,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // required for passport
-app.use(session({ secret: 'zomaareenstukjetekstDatjenietzomaarbedenkt' })); // session secret
+app.use(session(keys.session)); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 //Routes

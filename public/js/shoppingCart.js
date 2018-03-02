@@ -1,34 +1,54 @@
 $(document).ready(function() {
+  updateSumItems();
   // UPDATE cart quantities in our database
   $(".updateQuantityBtn").on("click", function() {
     event.preventDefault();
     var id = $(this).data("cartitem");
     var body = {
-      quantity: $(this).parent().children().val()
+      quantity: $(this)
+        .parent()
+        .children()
+        .val()
     };
     $.ajax({
-      method: 'POST',
-      url: '/updateitem/' + id,
+      method: "POST",
+      url: "/updateitem/" + id,
       data: body
-    }).done(function(data){});
+    }).done(function(data) {});
   });
   // DELETE cart item from database
-  $(".remove").on("click", function(){
+  $(".remove").on("click", function() {
     event.preventDefault();
-    var id = $(this).data('cartitem');
+    var id = $(this).data("cartitem");
     var body = {};
     $.ajax({
-      method: 'POST',
-      url: '/deleteitem/' + id,
+      method: "POST",
+      url: "/deleteitem/" + id,
       data: body
-    }).done(function(data){});
+    }).done(function(data) {});
   });
-
+  // // Update prices on load
+  // function trytogettotal() {
+  //   $(".basket-product").each(function() {
+  //     var myprice = $(this)
+  //       .find(".price")
+  //       .val();
+  //     var myquantity = $(this)
+  //       .find(".quantity-field")
+  //       .val();
+  //     var mysubtotal = myprice * myquantity;
+  //     subtotal = subtotal.toFixed(2);
+  //     console.log(subtotal);
+  //     $(this)
+  //       .find(".subtotal")
+  //       .html(subtotal);
+  //   });
+  // };
+  // trytogettotal();
   /* Set values + misc */
   var promoCode;
   var promoPrice;
   var fadeTime = 300;
-
   /* Assign actions */
   $(".quantity input").change(function() {
     updateQuantity(this);

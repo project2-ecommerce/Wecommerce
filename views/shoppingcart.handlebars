@@ -38,6 +38,7 @@
         <div class="basket-product">
             <div class="item">
                 <div class="product-image">
+                    <img src="/img/{{this.Product.dataValues.image}}">
                 </div>
                 <div class="product-details">
                     <h1>
@@ -46,12 +47,12 @@
                     <p>Checkout Code: <span>{{this.id}}</span></p>
                 </div>
             </div>
-            <div class="price">{{this.Product.dataValues.price}}</div>
+            <div class="price" value="{{this.Product.dataValues.price}}">{{this.Product.dataValues.price}}</div>
             <div class="quantity">
                 <input type="number" value="{{this.quantity}}" min="1" class="quantity-field">
                 <button class="updateQuantityBtn" data-cartitem="{{this.id}}" type="submit">Update</button>
             </div>
-            <div class="subtotal"></div>
+            <div class="subtotal">33.78</div>
             <div class="remove" data-cartItem="{{this.id}}">
                 <button type="submit">Remove</button>
             </div>
