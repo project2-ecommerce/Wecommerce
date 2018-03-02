@@ -1,7 +1,7 @@
 <div class='navbar container-fluid'>
     <div>
         <a href='/'>HOME</a>
-        <a href='/aboutUs'>ABOUT US</a>
+        <a href='/about-us'>ABOUT US</a>
         <a href='/tents'>TENTS</a>
         <a href='/sleepingbags'>SLEEPING BAGS</a>
         <a href='/backpacks'>BACKPACKS</a>
@@ -10,11 +10,12 @@
         {{#if loggedIn}}
         <a href="/logout" class="btn btn-primary">
             <span class="fa fa-facebook-official"></span> Logout</a>
+        <a href='/profile'>PROFILE</a>
         {{else}}
         <a href="/auth/facebook" class="btn btn-primary">
             <span class="fa fa-facebook-official"></span> Facebook Login</a>
         {{/if}}
-        <a href='cart'>CART</a>
+        <a href='/cart'>CART</a>
     </div>
 </div>
 
@@ -22,7 +23,33 @@
     <h1>
         <span class="fa fa-anchor"></span>Profile for {{user.name}}</h1>
 </div>
-
+<div class="alert alert-info" role="alert">Your user id is: {{user.facebook_id}}
+</div>
+<h1>Your Past Purchases</h1>
+{{#each carts}}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Cart #</th>
+            <th scope="col">Date</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each items}}
+        <tr>
+            <th scope="row">{{../carts.id}}</th>
+            <td>{{../carts.updatedAt}}</td>
+            <td>{{this.Product.dataValues.name}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{this.Product.dataValues.price}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/each}}
 <!-- FACEBOOK INFORMATION -->
 <div class="col-sm-6">
     <div class="well">
