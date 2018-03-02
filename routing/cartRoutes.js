@@ -1,5 +1,6 @@
 var db = require("../models");
 module.exports = function(app, passport) {
+  var totalCost = 0;
   // shopping cart view route
   app.get("/cart", function(req, res) {
     var items = [];
@@ -32,7 +33,6 @@ module.exports = function(app, passport) {
             css: "shoppingCart.css",
             javascript: "shoppingCart.js",
             items: items,
-            products: products,
             loggedIn: loggedInView(req)
           });
         });
@@ -95,6 +95,7 @@ module.exports = function(app, passport) {
         res.json(result);
       });
   });
+
 };
 function loggedInView(req) {
   if (req.isAuthenticated()) {
