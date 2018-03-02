@@ -1,13 +1,6 @@
 
 * {
     box-sizing: border-box;
-    max-width: 1440px;
-}
-
-body {
-    background-image: url("../img/rock_climbing.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 p {
@@ -197,13 +190,6 @@ button {
     top: 140px;
 }
 /* End accepted payments */
-
-.empty-section {
-    height: 680px;
-    width: 1440px;
-    background-color: none;
-    display: flex;
-}
 
 .footer {
     height: 140px;
