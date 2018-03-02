@@ -191,6 +191,14 @@ button {
 }
 /* End accepted payments */
 
+.empty-section {
+    height: 680px;
+    width: 1440px;
+    background-image: url("../img/rock_climber.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .footer {
     height: 140px;
     width: 1440px;
