@@ -3,12 +3,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background-image: url("../img/rock_climbing.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
 p {
     margin-bottom: -.08em;
 }
@@ -200,8 +194,9 @@ button {
 .empty-section {
     height: 680px;
     width: 1440px;
-    background-color: none;
-    display: flex;
+    background-image: url("../img/rock_climber.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .footer {
