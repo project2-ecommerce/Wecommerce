@@ -1,10 +1,10 @@
 var db = require("../models");
 module.exports = function(app, passport) {
+  var totalCost = 0;
   // shopping cart view route
   app.get("/cart", function(req, res) {
     var items = [];
     var products = [];
-    var priceTotal;
     db.Cart.findOne({
       where: {
         purchased: false,
@@ -26,18 +26,13 @@ module.exports = function(app, passport) {
           for (var i = 0; i < items.length; i++) {
             products.push(items[i].Product.dataValues);
           }
-          for (var i = 0; i < products.length; i++) {
-            priceTotal += parseFloat(products[i].price);
-          }
           console.log(items);
           console.log(products);
-          console.log(priceTotal);
           res.render("shoppingcart", {
             title: "Cart",
             css: "shoppingCart.css",
             javascript: "shoppingCart.js",
             items: items,
-            products: products,
             loggedIn: loggedInView(req)
           });
         });
@@ -53,6 +48,7 @@ module.exports = function(app, passport) {
   });
   // Add product to shopping cart from page
   app.post("/addtocart/:category/:itemid", function(req, res) {
+    console.log(req.body);
     var user;
     if (req.user) {
       user = req.user.facebook_id;
@@ -66,23 +62,21 @@ module.exports = function(app, passport) {
         purchased: false
       }
     }).then(function(result) {
-      console.log(req.body);
       db.CartItems.findOrCreate({
         where: {
           CartId: result[0].dataValues.id,
           ProductId: req.params.itemid,
           quantity: req.body.quantity
         }
-      }).then(function(result) {
-        res.redirect("/cart");
+      }).then(function(result){
+        res.json(result);
       });
     });
   });
-  // update item quantity from shopping cart
+  // UPDATE item quantity from shopping cart
   app.post("/updateitem/:id", function(req, res) {
-    db.cartItems
-      .update({
-        quantity: req.body.quantity,
+    db.CartItems.update({
+        quantity: req.body.quantity},{
         where: {
           id: req.params.id
         }
@@ -93,14 +87,15 @@ module.exports = function(app, passport) {
   });
   // delete item from shopping cart
   app.post("/deleteitem/:id", function(req, res) {
-    db.cartItems
-      .delete({
+    db.CartItems
+      .destroy({
         where: { id: req.params.id }
       })
       .then(function(result) {
-        res.redirect("/cart");
+        res.json(result);
       });
   });
+
 };
 function loggedInView(req) {
   if (req.isAuthenticated()) {
