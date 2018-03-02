@@ -36,6 +36,7 @@ button {
     width: 180px;
     font-family: Raleway-Regular;
     font-size: 16px;
+    background-color: #2E5564;
     color: #FFFFFF;
 }
 
@@ -47,9 +48,9 @@ button {
 
 #learn {
     position: relative;
-    top: 380px;
     left: 132px;
-    background-color: #2E5564;
+    height: 42px;
+    width: 180px;
 }
 /* End button style */
 
@@ -59,6 +60,7 @@ button {
 
 .header {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     height: 480px;
     width: 100%;
@@ -66,8 +68,11 @@ button {
 }
 
 .header-copy {
+    align-self: flex-start;
+    /* background-color: powderblue; */
+    /* opacity: 0.4; */
     position: relative;
-    bottom: 40px;
+    top: 100px;
     color: #DF997D;
 }
 
@@ -98,9 +103,9 @@ button {
 
 .navbar {
     height: 55px;
-    width: 1440px;
+    width: 100%;
     position: relative;
-    top: 70px;
+    top: 110px;
     background-color: #C65837;
     opacity: .8;
     padding-left: 132px;
