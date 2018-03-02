@@ -1,3 +1,23 @@
+<div class='navbar container-fluid'>
+    <div>
+        <a href='/'>HOME</a>
+        <a href='/about-us'>ABOUT US</a>
+        <a href='/tents'>TENTS</a>
+        <a href='/sleepingbags'>SLEEPING BAGS</a>
+        <a href='/backpacks'>BACKPACKS</a>
+    </div>
+    <div>
+        {{#if loggedIn}}
+        <a href="/logout" class="btn btn-primary">
+            <span class="fa fa-facebook-official"></span> Logout</a>
+        <a href='/profile'>PROFILE</a>
+        {{else}}
+        <a href="/auth/facebook" class="btn btn-primary">
+            <span class="fa fa-facebook-official"></span> Facebook Login</a>
+        {{/if}}
+        <a href='/cart'>CART</a>
+    </div>
+</div>
 <main>
     <div class="basket">
         <div class="basket-module">
