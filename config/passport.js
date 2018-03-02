@@ -1,4 +1,5 @@
 // load all the things we need
+var keys = require('../keys.js');
 var FacebookStrategy = require("passport-facebook").Strategy;
 var db = require("../models");
 
@@ -30,9 +31,9 @@ module.exports = function(passport, user) {
   passport.use(
     new FacebookStrategy(
       {
-        clientID: configAuth.facebookAuth.clientID,
-        clientSecret: configAuth.facebookAuth.clientSecret,
-        callbackURL:  configAuth.facebookAuth.callbackURL,
+        clientID: keys.facebook.clientID,
+        clientSecret: keys.facebook.clientSecret,
+        callbackURL:  keys.facebook.callbackURL,
         //enableProof: true,
         passReqToCallback: true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
       },
