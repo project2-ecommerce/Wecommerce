@@ -3,6 +3,22 @@
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 p {
     margin-bottom: -.08em;
 }
@@ -30,10 +46,10 @@ button {
 }
 
 #learn {
-    background-color: #2E5564;
     position: relative;
-    top: 348px;
+    top: 380px;
     left: 132px;
+    background-color: #2E5564;
 }
 /* End button style */
 
@@ -41,20 +57,17 @@ button {
     max-width: 1440px;
 }
 
-.grid-container {
-    display: grid;
-    grid-column-gap: 20px;
-    /* grid-template-columns: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px;
-    grid-template-rows: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px; */
-}
-
 .header {
+    display: flex;
+    flex-wrap: wrap;
     height: 480px;
-    width: 1440px;
+    width: 100%;
     background-image: url("../img/main_img.png");
 }
 
 .header-copy {
+    position: relative;
+    bottom: 40px;
     color: #DF997D;
 }
 
@@ -103,13 +116,15 @@ button {
 
 /* Shopping tiles */
 .shopping-tiles {
-    background-color: black;
     display: flex;
+    flex-wrap: wrap;
+    background-color: black;
 }
 
 #shop-tents {
     height: 480px;
     width: 33.33%;
+    min-width: 480px;
     position: relative;
     text-align: center;
     color: white;
@@ -128,6 +143,7 @@ button {
 #shop-sleepingBags {
     height: 480px;
     width: 33.33%;
+    min-width: 480px;
     position: relative;
     text-align: center;
     color: white;
@@ -146,6 +162,7 @@ button {
 #shop-backpacks {
     height: 480px;
     width: 33.33%;
+    min-width: 480px;
     position: relative;
     text-align: center;
     color: white;
@@ -173,21 +190,30 @@ button {
 /* Accepted payments section */
 .accepted-payment {
     display: flex;
+    flex-wrap: wrap;
     height: 580px;
     width: 1440px;
     background-image: url("../img/topography.png");
 }
 
+.section {
+    width: 720px;
+}
+
 #credit-card {
-    width: 900px;
+    width: 400px;
     position: relative;
     top: 140px;
+    left: 150px;
+    text-align: center;
 }
 
 #bitcoin {
     width: 280px;
     position: relative;
-    top: 140px;
+    top: 120px;
+    left: 190px;
+    text-align: center;
 }
 /* End accepted payments */
 
