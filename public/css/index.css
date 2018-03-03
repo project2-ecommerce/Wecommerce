@@ -40,12 +40,6 @@ button {
     color: #FFFFFF;
 }
 
-#clearance {
-    background-color: #8E3F30;
-    position: relative;
-    top: 520px;
-}
-
 #learn {
     position: relative;
     top: 130px;
@@ -109,6 +103,17 @@ button {
     width: 100%;
     height: 607px;
     background-image: url("../img/marketing_img.png");
+}
+
+#clearance {
+    position: relative;
+    top: 520px;
+    width: 180px;
+    height: 42px;
+}
+
+#clearance-btn {
+    background-color: #8E3F30;
 }
 
 /* Shopping tiles */
@@ -243,4 +248,197 @@ button {
     position: relative;
     top: 50px;
     height: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar {
+        height: 110px;
+        position: relative;
+        top: 10px;
+        background-color: #C65837;
+        opacity: .8;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    a {
+        font-size: 18px;
+        padding-right: 45px;
+    }
+
+    .header-copy {
+        align-self: flex-start;
+        position: relative;
+        top: 30px;
+        left: 20px;
+        line-height: 27px;
+        color: #DF997D;
+    }
+
+    button {
+        width: 240px;
+        height: 60px;
+        font-family: Raleway-Regular;
+        font-size: 16px;
+        background-color: #2E5564;
+        color: #FFFFFF;
+    }
+
+    #learn {
+        position: relative;
+        left: 20px;
+        top: 50px;
+        width: 240px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        height: 110px;
+        position: relative;
+        top: 10px;
+        background-color: #C65837;
+        opacity: .8;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    a {
+        font-size: 18px;
+        padding-right: 45px;
+    }
+
+    .header-copy {
+        align-self: flex-start;
+        position: relative;
+        top: 30px;
+        left: 20px;
+        line-height: 27px;
+        color: #DF997D;
+    }
+
+    #first-line {
+        font-family: AbrilFatface-Regular;
+        font-size: 26px;
+        line-height: 14px;
+    }
+
+    #second-line {
+        font-family: AbrilFatface-Regular;
+        font-size: 74px;
+        line-height: 16px;
+    }
+
+    #third-line {
+        position: relative;
+        top: 6px;
+        font-family: Raleway-Medium;
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    /* Button style */
+    button {
+        width: 240px;
+        height: 60px;
+        font-family: Raleway-Regular;
+        font-size: 16px;
+        background-color: #2E5564;
+        color: #FFFFFF;
+    }
+
+    #learn {
+        position: relative;
+        top: 130px;
+        width: 240px;
+        height: 60px;
+    }
+    /* End button style */
+
+    /* Shopping tiles */
+.shopping-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+}
+
+#shop-tents {
+    width: 33.33%;
+    height: 480px;
+    min-width: 480px;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#shop-tents:hover {
+    opacity: 0.45;
+}
+
+#tents-tile {
+    width: 480px;
+    height: 480px;
+    opacity: 0.4;
+}
+
+#shop-sleepingBags {
+    width: 33.33%;
+    height: 480px;
+    min-width: 480px;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#shop-sleepingBags:hover {
+    opacity: 0.45;
+}
+
+#bags-tile {
+    width: 480px;
+    height: 480px;
+    opacity: 0.46;
+}
+
+#shop-backpacks {
+    width: 33.33%;
+    height: 480px;
+    min-width: 480px;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#shop-backpacks:hover {
+    opacity: 0.45;
+}
+
+#packs-tile {
+    width: 480px;
+    height: 480px;
+    opacity: 0.48;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+}
+/* End shopping tiles */
+
+    .social-icon {
+        position: relative;
+        top: 26px;
+        height: 50px;
+    }
+
+    .footer-block {
+        position: relative;
+        top: 40px;
+        text-align: center;
+        color: #FFFFFF;
+    }
 }
