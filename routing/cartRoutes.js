@@ -5,6 +5,7 @@ module.exports = function(app, passport) {
   app.get("/cart", function(req, res) {
     var items = [];
     var products = [];
+    var subtotals = [];
     db.Cart.findOne({
       where: {
         purchased: false,
@@ -26,6 +27,7 @@ module.exports = function(app, passport) {
           for (var i = 0; i < items.length; i++) {
             products.push(items[i].Product.dataValues);
           }
+          console.log(subtotals);
           console.log(items);
           console.log(products);
           res.render("shoppingcart", {
