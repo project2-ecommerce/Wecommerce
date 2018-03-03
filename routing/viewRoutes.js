@@ -8,7 +8,7 @@ module.exports = function (app, passport) {
   //index route for landing page
   app.get("/", function (req, res) {
     res.render("index", {
-      title: "Wecommerce",
+      title: "RangeFront",
       css: "index.css",
       javascript: "index.js",
       loggedIn: loggedInView(req)
@@ -60,7 +60,7 @@ module.exports = function (app, passport) {
 
     });
     db.Cart.findAll({
-      where: { user: req.user.facebook_id },
+      where: { user: req.user.facebook_id, purchased: true },
       include: [{
         model: db.CartItems
       }]

@@ -39,6 +39,9 @@ require("./routing/viewRoutes.js")(app, passport);
 require("./routing/cartRoutes.js")(app, passport);
 require("./routing/fbRoutes.js")(app, passport);
 require("./routing/stripePost.js")(app, passport);
+app.use(function(req,res){
+  res.send("404");
+});
 // Start the server
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {

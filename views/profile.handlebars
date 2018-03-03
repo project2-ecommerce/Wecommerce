@@ -25,28 +25,23 @@
 </div>
 <div class="alert alert-info" role="alert">Your user id is: {{user.facebook_id}}
 </div>
-<h1>Your Past Purchases</h1>
+<p>Previous Purchases:</p>
 {{#each carts}}
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">Cart #</th>
             <th scope="col">Date</th>
-            <th scope="col">Item Name</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Price</th>
+            <th scope="col">Session</th>
         </tr>
     </thead>
     <tbody>
-        {{#each CartItems}}
         <tr>
             <th scope="row">1</th>
-            <th>date</th>
-            <th>sdfsdf</th>
-            <th>esrs</th>
-            <th>test</th>
+            <th>{{this.id}}</th>
+            <th>{{updatedAt}}</th>
+            <th>{{sessionID}}</th>
         </tr>
-        {{/each}}
     </tbody>
 </table>
 {{/each}}

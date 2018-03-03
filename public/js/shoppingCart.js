@@ -26,24 +26,6 @@ $(document).ready(function() {
       data: body
     }).done(function(data) {});
   });
-  // // Update prices on load
-  // function trytogettotal() {
-  //   $(".basket-product").each(function() {
-  //     var myprice = $(this)
-  //       .find(".price")
-  //       .val();
-  //     var myquantity = $(this)
-  //       .find(".quantity-field")
-  //       .val();
-  //     var mysubtotal = myprice * myquantity;
-  //     subtotal = subtotal.toFixed(2);
-  //     console.log(subtotal);
-  //     $(this)
-  //       .find(".subtotal")
-  //       .html(subtotal);
-  //   });
-  // };
-  // trytogettotal();
   /* Set values + misc */
   var promoCode;
   var promoPrice;
