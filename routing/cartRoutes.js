@@ -27,9 +27,6 @@ module.exports = function(app, passport) {
           for (var i = 0; i < items.length; i++) {
             products.push(items[i].Product.dataValues);
           }
-          console.log(subtotals);
-          console.log(items);
-          console.log(products);
           res.render("shoppingcart", {
             title: "Cart",
             css: "shoppingCart.css",
@@ -50,7 +47,6 @@ module.exports = function(app, passport) {
   });
   // Add product to shopping cart from page
   app.post("/addtocart/:category/:itemid", function(req, res) {
-    console.log(req.body);
     var user;
     if (req.user) {
       user = req.user.facebook_id;
