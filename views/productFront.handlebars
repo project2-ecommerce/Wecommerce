@@ -1,0 +1,77 @@
+<div class='main-container'>
+    <div class='grid-container'>
+    <div class='header'>
+        <!-- <button type="button" id='learn'>LEARN MORE</button> -->
+        <div class='navbar'>
+        <div>
+            <a href='/'>HOME</a>
+            <a href='/about-us'>ABOUT US</a>
+            <a href='/products/tent'>TENTS</a>
+            <a href='/products/sleepingbag'>SLEEPING BAGS</a>
+            <a href='/products/backpack'>BACKPACKS</a>
+        </div>
+        <div>
+          <div>
+              {{#if loggedIn}}
+              <a href="/logout" class="btn btn-primary">
+                  <span class="fa fa-facebook-official"></span> Logout</a>
+              {{else}}
+              <a href="/auth/facebook" class="btn btn-primary">
+                  <span class="fa fa-facebook-official"></span> Facebook Login</a>
+              {{/if}}
+              <a href='/cart'>CART</a>
+          </div>
+        </div>
+        </div>
+        <div class='header-copy'>
+            <!-- <p id='first-line'>For the love of</p>
+            <br>
+            <p id='second-line'>OUTDOOR</p>
+            <br>
+            <p id='third-line'>Whether you're a weekend warrior or a<br> Navy SEAL, we've got you covered.</p> -->
+        </div>
+    </div>
+    <div class='marketing'>
+      <div class="shopFrontWrap">
+        <div class="shopFrontText1">{{item.name}}</div>
+        <a href=# target="_blank">
+			       <img class="shopFrontImage" src="../../img/{{item.image}}" alt="Picture of app.">
+        </a>
+
+
+      </div>
+</div>
+
+    <div class="purchaseBox">
+      <div class="shopFrontText2">${{item.price}}</div>
+        <button type="button" class="addCartButton">ADD TO CART</button>
+    </div>
+
+    <div class="descriptionBox">
+      <div class="shopFrontText3">PRODUCT DESCRIPTION</div>
+        <div class="shopFrontText4">{{item.description}}</div>
+    </div>
+
+
+
+
+    <div class='accepted-payment'>
+
+    </div>
+    <div class='footer'>
+      <div class='social'>
+          <a href='https://www.facebook.com' target='_blank'><img src='/img/facebook.svg' alt='facebook' class='social-icon'></a>
+          <a href='https://www.twitter.com' target='_blank'><img src='/img/twitter.svg' alt='twitter' class='social-icon'></a>
+          <a href='https://www.instagram.com' target='_blank'><img src='/img/instagram.svg' alt='instagram' class='social-icon'></a>
+          <a href='https://plus.google.com/' target='_blank'><img src='/img/google+.svg' alt='google+' class='social-icon'></a>
+      </div>
+      <p class="footer-block">
+          <span>
+              <a target="_blank" href='https://github.com/project2-ecommerce/Wecommerce'>
+                  <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+              </a>
+          </span> Created By: Pete Garcia, Mark Alaniz, &amp; Will Blake 2018 &copy;
+      </p>
+    </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@ var PORT = process.env.PORT || 3000;
 // set up database connection
 var db = require("./models");
 // pass passport for configuration
-require('./config/passport')(passport, db.user); 
+require('./config/passport')(passport, db.user);
 // Set up body parser from documentation
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }));
