@@ -1,28 +1,25 @@
 <div class='main-container'>
-    <div class='grid-container'>
+    <section>
         <div class='header'>
-            <a href='/learn-more'>
-                <button id='learn'> LEARN MORE</button>
-            </a>
-        <div class='navbar'>
-            <div>
-                <a href='/'>HOME</a>
-                <a href='/about-us'>ABOUT US</a>
-                <a href='/products/tent'>TENTS</a>
-                <a href='/products/sleepingbag'>SLEEPING BAGS</a>
-                <a href='/products/backpack'>BACKPACKS</a>
+            <div class='navbar container-fluid'>
+                <div>
+                    <a href='/about-us'>ABOUT US</a>
+                    <a href='/tents'>TENTS</a>
+                    <a href='/sleepingbags'>SLEEPING BAGS</a>
+                    <a href='/backpacks'>BACKPACKS</a>
+                </div>
+                <div>
+                    {{#if loggedIn}}
+                    <a href="/logout" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Logout</a>
+                    <a href='/profile'>PROFILE</a>
+                    {{else}}
+                    <a href="/auth/facebook" class="btn btn-primary">
+                        <span class="fa fa-facebook-official"></span> Facebook Login</a>
+                    {{/if}}
+                    <a href='/cart'>CART</a>
+                </div>
             </div>
-            <div>
-                {{#if loggedIn}}
-                <a href="/logout" class="btn btn-primary">
-                    <span class="fa fa-facebook-official"></span> Logout</a>
-                {{else}}
-                <a href="/auth/facebook" class="btn btn-primary">
-                    <span class="fa fa-facebook-official"></span> Facebook Login</a>
-                {{/if}}
-                <a href='/cart'>CART</a>
-            </div>
-        </div>
             <div class='header-copy'>
                 <p id='first-line'>For the love of</p>
                 <br>
@@ -31,8 +28,12 @@
                 <p id='third-line'>Whether you're a weekend warrior or a
                     <br> Navy SEAL, we've got you covered.</p>
             </div>
+            <a href='/learn-more' id='learn'>
+                <button>LEARN MORE</button>
+            </a>
         </div>
-    </div>
+    </section>
+    <section>
         <div class='shopping-tiles'>
             <div id='shop-tents'>
                 <a href='/products/tent'>
@@ -47,26 +48,60 @@
                 </a>
             </div>
             <div id='shop-backpacks'>
+<<<<<<< HEAD
                     <a href='/products/sleeping-bags'>
                         <img src='../img/shop_backpacks.jpg' alt='Shop Backpacks' id='packs-tile'>
                         <div class="centered">Shop Backpacks</div>
                     </a>
+=======
+                <a href='/api/backpacks'>
+                    <img src='../img/shop_backpacks.jpg' alt='Shop Backpacks' id='packs-tile'>
+                    <div class="centered">Shop Backpacks</div>
+                </a>
+>>>>>>> master
             </div>
         </div>
+    </section>
+    <section>
         <div class='marketing'>
-            <a href='/api/clearance'>
-                <button id='clearance'>SHOP CLEARANCE</button>
+            <a href='/api/clearance' id='clearance'>
+                <button id='clearance-btn'>SHOP CLEARANCE</button>
             </a>
         </div>
+    </section>
+    <section>
         <div class='accepted-payment'>
+<<<<<<< HEAD
+=======
+            <div class='section'>
+                <img src='../img/credit_card.png' alt='Credit Card' id='credit-card'>
+            </div>
+            <div class='section'>
+                <img src='../img/bitcoin.png' alt='Credit Card' id='bitcoin'>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class='empty-section'>
+>>>>>>> master
 
         </div>
+    </section>
+    <section>
         <div class='footer'>
             <div class='social'>
-                <a href='https://www.facebook.com' target='_blank'><img src='/img/facebook.svg' alt='facebook' class='social-icon'></a>
-                <a href='https://www.twitter.com' target='_blank'><img src='/img/twitter.svg' alt='twitter' class='social-icon'></a>
-                <a href='https://www.instagram.com' target='_blank'><img src='/img/instagram.svg' alt='instagram' class='social-icon'></a>
-                <a href='https://plus.google.com/' target='_blank'><img src='/img/google+.svg' alt='google+' class='social-icon'></a>
+                <a href='https://www.facebook.com' target='_blank'>
+                    <img src='/img/facebook.svg' alt='facebook' class='social-icon'>
+                </a>
+                <a href='https://www.twitter.com' target='_blank'>
+                    <img src='/img/twitter.svg' alt='twitter' class='social-icon'>
+                </a>
+                <a href='https://www.instagram.com' target='_blank'>
+                    <img src='/img/instagram.svg' alt='instagram' class='social-icon'>
+                </a>
+                <a href='https://plus.google.com/' target='_blank'>
+                    <img src='/img/google+.svg' alt='google+' class='social-icon'>
+                </a>
             </div>
             <p class="footer-block">
                 <span>
@@ -76,5 +111,5 @@
                 </span> Created By: Pete Garcia, Mark Alaniz, &amp; Will Blake 2018 &copy;
             </p>
         </div>
-    </div>
+    </section>
 </div>

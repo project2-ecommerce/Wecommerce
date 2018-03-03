@@ -78,7 +78,7 @@ button,
 .subtotal-value:before,
 .total-value:before,
 .promo-value:before {
-    content: '£';
+    content: '$';
 }
 
 .hide {
@@ -335,6 +335,21 @@ aside {
     height: 34px;
     width: 100%;
 }
+#updateQuantity {
+    padding: 10px;
+}
+.navbar {
+    width: 100%;
+    background-color: #C65837;
+    opacity: 1;
+}
+.navbar a {
+    font-family: Raleway-Regular;
+    font-size: 12px;
+    color: #FFFFFF;
+    padding-right: 30px;
+}
+
 
 @media screen and (max-width: 640px) {
     aside,

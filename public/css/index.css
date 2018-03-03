@@ -3,8 +3,24 @@
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 p {
-        margin-bottom: -.08em;
+    margin-bottom: -.08em;
 }
 
 a {
@@ -16,78 +32,66 @@ a {
 
 /* Button style */
 button {
-    height: 42px;
     width: 180px;
+    height: 42px;
     font-family: Raleway-Regular;
     font-size: 16px;
+    background-color: #2E5564;
     color: #FFFFFF;
 }
 
-#clearance {
-    background-color: #8E3F30;
-    position: relative;
-    top: 520px;
-}
-
 #learn {
-    background-color: #2E5564;
     position: relative;
-    top: 348px;
+    top: 130px;
     left: 132px;
+    width: 180px;
+    height: 42px;
 }
 /* End button style */
 
 .main-container {
+    margin: auto;
     max-width: 1440px;
 }
 
-.grid-container {
-    display: grid;
-    grid-column-gap: 20px;
-    /* grid-template-columns: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px;
-    grid-template-rows: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px; */
-}
-
 .header {
+    width: 100%;
     height: 480px;
-    width: 1440px;
+    display: flex;
+    flex-direction: column;
     background-image: url("../img/main_img.png");
 }
 
 .header-copy {
+    align-self: flex-start;
+    position: relative;
+    top: 120px;
+    left: 132px;
+    line-height: 27px;
     color: #DF997D;
 }
 
 #first-line {
-    position: relative;
-    padding-left: 132px;
-    top: 70px;
     font-family: AbrilFatface-Regular;
     font-size: 40px;
 }
 
 #second-line {
-    position: relative;
-    padding-left: 132px;
-    top: 7px;
     font-family: AbrilFatface-Regular;
     font-size: 88px;
 }
 
 #third-line {
-    position: relative;
-    padding-left: 132px;
-    bottom: 36px;
     font-family: Raleway-Medium;
     font-size: 20px;
     line-height: 26px;
 }
 
 .navbar {
+    width: 100%;
     height: 55px;
-    width: 1440px;
     position: relative;
-    top: 70px;
+    top: 110px;
     background-color: #C65837;
     opacity: .8;
     padding-left: 132px;
@@ -95,21 +99,35 @@ button {
 }
 
 .marketing {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     height: 607px;
-    width: 1440px;
     background-image: url("../img/marketing_img.png");
-    text-align: center;
+}
+
+#clearance {
+    position: relative;
+    top: 520px;
+    width: 180px;
+    height: 42px;
+}
+
+#clearance-btn {
+    background-color: #8E3F30;
 }
 
 /* Shopping tiles */
 .shopping-tiles {
-    background-color: black;
     display: flex;
+    flex-wrap: wrap;
+    background-color: black;
 }
 
 #shop-tents {
-    height: 480px;
     width: 33.33%;
+    height: 480px;
+    min-width: 480px;
     position: relative;
     text-align: center;
     color: white;
@@ -120,14 +138,15 @@ button {
 }
 
 #tents-tile {
-    height: 480px;
     width: 480px;
+    height: 480px;
     opacity: 0.4;
 }
 
 #shop-sleepingBags {
-    height: 480px;
     width: 33.33%;
+    height: 480px;
+    min-width: 480px;
     position: relative;
     text-align: center;
     color: white;
@@ -138,14 +157,15 @@ button {
 }
 
 #bags-tile {
-    height: 480px;
     width: 480px;
+    height: 480px;
     opacity: 0.46;
 }
 
 #shop-backpacks {
-    height: 480px;
     width: 33.33%;
+    height: 480px;
+    min-width: 480px;
     position: relative;
     text-align: center;
     color: white;
@@ -156,8 +176,8 @@ button {
 }
 
 #packs-tile {
-    height: 480px;
     width: 480px;
+    height: 480px;
     opacity: 0.48;
 }
 
@@ -170,15 +190,48 @@ button {
 }
 /* End shopping tiles */
 
+/* Accepted payments section */
 .accepted-payment {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     height: 580px;
-    width: 1440px;
     background-image: url("../img/topography.png");
 }
 
+.section {
+    width: 720px;
+}
+
+#credit-card {
+    width: 400px;
+    position: relative;
+    top: 140px;
+    left: 150px;
+    text-align: center;
+}
+
+#bitcoin {
+    width: 280px;
+    position: relative;
+    top: 120px;
+    left: 190px;
+    text-align: center;
+}
+/* End accepted payments */
+
+.empty-section {
+    width: 100%;
+    height: 680px;
+    background-image: url("../img/rock_climber.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .footer {
+    width: 100%;
     height: 140px;
-    width: 1440px;
     background-color: #2E5564;
 }
 
@@ -198,4 +251,187 @@ button {
     position: relative;
     top: 50px;
     height: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar {
+        height: 110px;
+        position: relative;
+        top: 10px;
+        background-color: #C65837;
+        opacity: .8;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    a {
+        font-size: 18px;
+        padding-right: 45px;
+    }
+
+    .header-copy {
+        align-self: flex-start;
+        position: relative;
+        top: 30px;
+        left: 20px;
+        line-height: 27px;
+        color: #DF997D;
+    }
+
+    button {
+        width: 240px;
+        height: 60px;
+        font-family: Raleway-Regular;
+        font-size: 16px;
+        background-color: #2E5564;
+        color: #FFFFFF;
+    }
+
+    #learn {
+        position: relative;
+        left: 20px;
+        top: 50px;
+        width: 240px;
+        height: 60px;
+    }
+
+    .section {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        height: 110px;
+        position: relative;
+        top: 10px;
+        background-color: #C65837;
+        opacity: .8;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    a {
+        font-size: 18px;
+        padding-right: 45px;
+    }
+
+    .header-copy {
+        align-self: flex-start;
+        position: relative;
+        top: 30px;
+        left: 20px;
+        line-height: 27px;
+        color: #DF997D;
+    }
+
+    #first-line {
+        font-family: AbrilFatface-Regular;
+        font-size: 26px;
+        line-height: 14px;
+    }
+
+    #second-line {
+        font-family: AbrilFatface-Regular;
+        font-size: 74px;
+        line-height: 16px;
+    }
+
+    #third-line {
+        position: relative;
+        top: 6px;
+        font-family: Raleway-Medium;
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    /* Button style */
+    button {
+        width: 240px;
+        height: 60px;
+        font-family: Raleway-Regular;
+        font-size: 16px;
+        background-color: #2E5564;
+        color: #FFFFFF;
+    }
+
+    #learn {
+        position: relative;
+        top: 60px;
+        width: 240px;
+        height: 60px;
+    }
+    /* End button style */
+
+    /* Shopping tiles */
+.shopping-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+}
+
+#shop-tents {
+    width: 33.33%;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#tents-tile {
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+#shop-sleepingBags {
+    width: 33.33%;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#bags-tile {
+    width: 100%;
+    height: 100%;
+    opacity: 0.46;
+}
+
+#shop-backpacks {
+    width: 33.33%;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#shop-backpacks:hover {
+    opacity: 0.45;
+}
+
+#packs-tile {
+    width: 100%;
+    height: 100%;
+    opacity: 0.48;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+}
+/* End shopping tiles */
+
+    .social-icon {
+        position: relative;
+        top: 26px;
+        height: 50px;
+    }
+
+    .footer-block {
+        position: relative;
+        top: 40px;
+        text-align: center;
+        color: #FFFFFF;
+    }
 }

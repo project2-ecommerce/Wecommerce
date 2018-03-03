@@ -1,10 +1,8 @@
-module.exports = function(app) {
-    app.get('/api/sleepingBags', function (req, res) {
-
+var db = require("../models");
+module.exports = function (app,passport) {
+    app.get('/api/products', function(req, res){
+        db.Products.findAll({}).then(function(result){
+            res.json(result);
+        });
     });
-    app.get('/api/backpacks', function (req, res) {
-
-    });
-
-
 };

@@ -1,5 +1,24 @@
+<div class='navbar container-fluid'>
+    <div>
+        <a href='/'>HOME</a>
+        <a href='/about-us'>ABOUT US</a>
+        <a href='/tents'>TENTS</a>
+        <a href='/sleepingbags'>SLEEPING BAGS</a>
+        <a href='/backpacks'>BACKPACKS</a>
+    </div>
+    <div>
+        {{#if loggedIn}}
+        <a href="/logout" class="btn btn-primary">
+            <span class="fa fa-facebook-official"></span> Logout</a>
+        <a href='/profile'>PROFILE</a>
+        {{else}}
+        <a href="/auth/facebook" class="btn btn-primary">
+            <span class="fa fa-facebook-official"></span> Facebook Login</a>
+        {{/if}}
+        <a href='/cart'>CART</a>
+    </div>
+</div>
 <div class='container'>
-    <a href='/'>HOME</a>
     <h1>How to Choose Tents for Camping</h1>
     <img src='../img/choose_tent.jpg' alt='tents'>
     <p>Car camping with family or friends is a summer pastime for many of us. Whether the campground itself is the main attraction
