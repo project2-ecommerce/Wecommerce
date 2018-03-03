@@ -27,10 +27,47 @@ module.exports = function (app, passport) {
     res.render("aboutUs", {
       title: "About Us",
       css: "aboutUs.css",
-      javascript: "aboutUs.js",
+      javascript: "learnMore.js",
       loggedIn: loggedInView(req)
     });
   });
+  app.get('/products/:category', function (req, res) {
+    db.Products.findAll({
+      where:{category:req.params.category}
+
+    }).then(function(results){
+      var item = [];
+      for (var i = 0; i < results.length; i++){
+        item.push(results[i].dataValues)
+
+      }
+      console.log(item);
+      res.render("products", {
+      title: "Products - Wecommerce",
+      css: "products.css",
+      javascript: "index.js",
+      item:item
+      });
+    });
+  });
+
+  app.get('/products/:category/:id', function (req, res) {
+    db.Products.findById(
+      req.params.id
+
+    ).then(function(results){
+    console.log(results);
+      res.render("productFront", {
+      title: "Product - Wecommerce",
+      css: "products.css",
+      javascript: "index.js",
+      item:results
+      });
+    });
+  });
+
+
+
 
   // route for showing the profile page
   app.get("/profile", isLoggedIn, function (req, res) {
