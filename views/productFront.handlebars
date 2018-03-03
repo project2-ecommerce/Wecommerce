@@ -37,14 +37,24 @@
         <a href=# target="_blank">
 			       <img class="shopFrontImage" src="../../img/{{item.image}}" alt="Picture of app.">
         </a>
-			     
-                  <div class="shopFrontText2">${{item.price}}</div>
-                    <!-- <button type="button" id="shopButton">PRODUCT DETAILS</button> -->
 
 
+      </div>
 </div>
-        <!-- <button type="button" id='clearance'>SHOP CLEARANCE</button> -->
+
+    <div class="purchaseBox">
+      <div class="shopFrontText2">${{item.price}}</div>
+        <button type="button" class="addCartButton">ADD TO CART</button>
     </div>
+
+    <div class="descriptionBox">
+      <div class="shopFrontText3">PRODUCT DESCRIPTION</div>
+        <div class="shopFrontText4">{{item.description}}</div>
+    </div>
+
+
+
+
     <div class='accepted-payment'>
 
     </div>

@@ -139,9 +139,9 @@ button {
     font-weight:bold;
 }
 
-#shopButton {
+.addCartButton {
     background-color: #CB7257;
-    position: relative;
+    float:right;
 }
 
 .footer-block {
@@ -167,6 +167,16 @@ button {
 .shopFrontText1 {
 float: left;
 padding-left: 20px;
+font-size: 40px;
+color: #CB7257;
+}
+
+.shopFrontText2 {
+  float: right;
+  color: #8E3f30;
+  font-size: 30px;
+  font-weight:bold;
+}
 }
 
 .shopFrontWrap {
@@ -175,4 +185,10 @@ padding-left: 20px;
 
 .shopFrontImage {
   padding-top:20px;
+}
+
+.purchaseBox {
+  float: right;
+  width: 400px;
+
 }
