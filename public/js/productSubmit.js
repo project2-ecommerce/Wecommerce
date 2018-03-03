@@ -8,7 +8,7 @@ $("#submit-button").on("click", function() {
     $.ajax({
     method: "POST",
     data: data,
-    url: "addtocart/tents/" + item
+    url: "/addtocart/tents/" + item
     }).done(function(result) {
     location.href = "/cart";
     });
