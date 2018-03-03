@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  updateSumItems();
   // UPDATE cart quantities in our database
   $(".updateQuantityBtn").on("click", function() {
     event.preventDefault();
@@ -135,7 +134,7 @@ $(document).ready(function() {
     }
     return total;
   }
-
+  
   /* Update quantity */
   function updateQuantity(quantityInput) {
     /* Calculate line price */
