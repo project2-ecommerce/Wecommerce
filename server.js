@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var passport = require('passport');
 var request = require("request");
 var keys = require('./keys.js')
+var https = require('https');
 
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -39,6 +40,10 @@ require("./routing/viewRoutes.js")(app, passport);
 require("./routing/cartRoutes.js")(app, passport);
 require("./routing/fbRoutes.js")(app, passport);
 require("./routing/stripePost.js")(app, passport);
+// Pings heroku app to keep awake
+setInterval(function(){
+  https.get('https://rangefront.herokuapp.com/');
+}, 300000);
 app.use(function(req,res){
   res.send("404");
 });
@@ -49,3 +54,4 @@ db.sequelize.sync({ force: true }).then(function() {
   });
 
 });
+
