@@ -48,7 +48,7 @@ app.use(function(req,res){
   res.send("404");
 });
 // Start the server
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
