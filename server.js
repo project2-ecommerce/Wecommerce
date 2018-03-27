@@ -41,9 +41,9 @@ require("./routing/cartRoutes.js")(app, passport);
 require("./routing/fbRoutes.js")(app, passport);
 require("./routing/stripePost.js")(app, passport);
 // Pings heroku app to keep awake
-setInterval(function(){
-  https.get('https://rangefront.herokuapp.com/');
-}, 300000);
+//setInterval(function(){
+//  https.get('https://rangefront.herokuapp.com/');
+//}, 300000);
 app.use(function(req,res){
   res.send("404");
 });
